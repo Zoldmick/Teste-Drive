@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+//import InputMask from 'react-input-mask';
 
 const Formfield = styled.div`
-  align-content:justify;
+  position:relative;
 
   Input[type='text'] {
     margin-bottom:15px;
@@ -11,16 +12,21 @@ const Formfield = styled.div`
   Input[type='number'] {
     width:20vw;
   }
+
+  Input[type='checkbox'] {
+    display:flex;
+    flex-direction:row-reverse
+  }
 `;
 
-const Label = styled.div`
+const Label = styled.label`
   font-size:20px;
   font-weight:900;
 
   margin-right:10px;
 `;
 
-const Input = styled.input`
+const Input = styled.input` 
   height:35px;
   width:25vw;
 
@@ -35,10 +41,17 @@ const Input = styled.input`
   border-bottom-left-radius:13px;
   border-bottom:5px solid blue;
   
+  &[type='checkbox'] + Label {
+    height:3vh;
+    width:10vw;
+    margin:0;
+
+    color:red;
+  }
 `;
 
 function FormField({
-    label, type, name, 
+    label, type, name
   }) {
     const fieldId = `id_${name}`;
 
@@ -51,6 +64,7 @@ function FormField({
           id={fieldId}
           type={type}  
           name={name} 
+    
         />  
       </Formfield>
     );

@@ -21,6 +21,8 @@ export const InfosWrapper = styled.div`
     padding-top:55px;
     padding-left:180px;
     padding-right:180px;
+    margin-bottom:10px;
 `;
 
 export const Span = styled.div``;
+

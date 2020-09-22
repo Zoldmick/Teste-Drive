@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
+import { FaInfo } from 'react-icons/fa'
 
 function TbEspera(){
     return(
@@ -16,7 +17,7 @@ function TbEspera(){
             </thead>
             <tbody>
                 <tr>
-                <td></td>
+                <td> <FaInfo /> </td>
                 <td></td>
                 <td></td>
                 <td></td>

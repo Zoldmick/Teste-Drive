@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from '../../assets/img/Logo.png'
 import {PageDefault, NmEmpresa, Logotipo, H1} from './styled'
 
 function Header (){
@@ -8,7 +9,7 @@ function Header (){
                 <H1>Flagstaff Car</H1>
             </NmEmpresa>
             <Logotipo>
-                <img src = "" alt="Logotipo Flagstaff Car" height='100' />
+                <img src = {Logo} alt="Logotipo Flagstaff Car" height='100' />
             </Logotipo>
         </PageDefault>  
     );

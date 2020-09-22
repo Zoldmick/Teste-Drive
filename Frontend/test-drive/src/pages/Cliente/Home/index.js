@@ -1,17 +1,18 @@
 import React from 'react'
-import Menu from '../../components/Header'
+import Menu from '../../../components/Header'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import Footer from '../../components/Fotter'
+import Footer from '../../../components/Fotter'
 import {PageDefault, ContainerMenu, InfosWrapper, Span} from './styled'
-
 //Tabelas de consulta 
 import TbAprovados from './aprovados';
 import TbCancelados from './cancelados';
 import TbEspera from './espera';
 import TbConcluido from './concluido';
-
 //icones
+import { FcList } from 'react-icons/fc';
+import { CgAdd } from "react-icons/cg";
+import { IoIosNotificationsOutline } from "react-icons/io";
 
 
 
@@ -20,13 +21,17 @@ function HomeCliente() {
        <PageDefault>
             <Menu />
             <ContainerMenu>
-                <div>Menu</div>
+                <div>
+                    <FcList /> 
+                </div>
 
-                <div>Notificações</div>
+                <div>
+                    <IoIosNotificationsOutline />
+                </div>
             </ContainerMenu>
             
             <InfosWrapper>
-                    <Span>Adicionar Agendamento</Span>
+                   <Span><CgAdd />  Adicionar Agendamento</Span>
             
                 <Tabs defaultActiveKey="Aprovados" id="uncontrolled-tab-example">
                     <Tab eventKey="Aprovados" title="Aprovados">

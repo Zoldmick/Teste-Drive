@@ -1,14 +1,14 @@
 import React from 'react'
-import Header from '../../components/Header'
 import FormField from '../../components/FormField'
 import {ButtonMedio, ButtonGrande} from '../../components/Button'
-import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, ContainerButton, ContainerButtonOne, Span } from './style'
+import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, ContainerButton, ContainerButtonOne, Span, H1 } from './style'
+//import { GrView } from 'react-icons/gr'
 
 function Login(){
     return(
         <PageDefault>
 
-            <Header />
+            <H1>Flagstaff Car</H1>
             <ConteudoWrapper>
 
                 <InfosWrapper>

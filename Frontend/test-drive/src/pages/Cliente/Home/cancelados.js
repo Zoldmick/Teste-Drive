@@ -1,8 +1,8 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
+import { FaInfo } from 'react-icons/fa'
 
-
-function TbAprovados(){
+function TbCancelados(){
     return(
         <Table striped bordered hover>
             <thead>
@@ -17,7 +17,7 @@ function TbAprovados(){
             </thead>
             <tbody>
                 <tr>
-                <td></td>
+                <td> <FaInfo /> </td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -45,4 +45,4 @@ function TbAprovados(){
     );
 }
 
-export default TbAprovados;
+export default TbCancelados;

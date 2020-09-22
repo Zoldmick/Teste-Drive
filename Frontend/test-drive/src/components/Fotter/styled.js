@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const PageDefault = styled.div`
     display:flex;
     height:25vh;
-    width:100vw;
+    width:100%;
 
     background:var(--Black);
     box-sizing:border-box;
@@ -30,6 +30,7 @@ export const Infos = styled.div`
     text-align:center;
     padding:12px;
     padding-top:5px;
+    box-sizing:border-box;
 `;
 
 export const Span = styled.span`
