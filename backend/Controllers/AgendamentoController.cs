@@ -13,11 +13,11 @@ namespace backend.Controllers
         Utils.AgendamentoConversor conv = new Utils.AgendamentoConversor();
 
         [HttpPost]
-        public ActionResult<List<Models.Response.AgendamentoResponse>> Consultar(string status)
+        public ActionResult<List<Models.Response.AgendamentoResponse>> Consultar(int id, string status)
         {
             try
             {
-               return conv.ParaListaResponse(buss.Consultar(status));
+               return conv.ParaListaResponse(buss.Consultar(id,status));
             }
             catch (Exception ex)
             {
@@ -25,6 +25,62 @@ namespace backend.Controllers
                     new Models.Response.ErrorResponse(ex.Message,400)
                 );
             }
+        }
+        [HttpPut]
+        public ActionResult<Models.Response.AgendamentoResponse> AlterarStatus(int id, string status)
+        {
+            try
+            {
+                return conv.ParaResponse(buss.AlterarStatus(id,status));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
+        [HttpPut("Avafeed")] // Avaliação e Feddback
+        public ActionResult<Models.Response.AgendamentoResponse> AlterarAvaFeed(int id, int avaliacao,string feedback)
+        {
+            try
+            {
+                return conv.ParaResponse(buss.AlterarAvaFeed(id,avaliacao,feedback));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message, 400)
+                );
+            }
+        }
+
+        [HttpPost]
+        public Models.Response.AgendamentoResponse Cadastrar(Models.Request.AgendamentoRequest req)
+        {
+            Models.TbAgendamento ag = conv.ParaTabela(req);
+            return conv.ParaResponse(buss.Cadastrar(req.Login,ag));
+        }
+
+        [HttpGet]
+        public ActionResult<List<DateTime>> ConsultarHorarios(DateTime dia)
+        {
+            try
+            {
+                return buss.ConsultarHorarios(dia);
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                ); 
+            }
+        }
+
+        [HttpGet("ping")]
+        public string ping()
+        {
+            return "pong";
         }
     }
 }

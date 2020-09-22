@@ -58,6 +58,7 @@ namespace backend.Controllers
                 );
             }
         }
+        
         [HttpDelete("Lista")]
         public ActionResult<List<Models.Response.NotificacaoResponse>> DeletarLista(List<int> ids)
         {
@@ -84,6 +85,12 @@ namespace backend.Controllers
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        [HttpGet("ping")]
+        public string ping()
+        {
+            return "pong";
         }
     }
 }

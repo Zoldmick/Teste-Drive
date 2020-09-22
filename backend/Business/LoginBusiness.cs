@@ -20,9 +20,9 @@ namespace backend.Business
                 string provedor = to.Substring(to.IndexOf("@") + 1,email.IndexOf(".com")).ToLower();
             if(!(provedor == "gmail" || provedor == "outlook")) throw new ArgumentException($"Email inválido {provedor}"); 
 
-            if(db.ConsultarEmail(email) == null) Console.WriteLine("Email não existe");
+            if(db.ConsultarEmail(email) == null) throw new ArgumentException("Email não existe");
             
-            return db.ConsultarEmail(email);
+            return db.RedefinirCodigo(email);
         }
 
         public Models.TbLogin Alterar(int id, int cod, string senha)

@@ -36,15 +36,15 @@ namespace backend.Business
 
             if(r(client.NmCliente)) throw new ArgumentException("Colocar nome completo");
 
-            // if(client.NrTelefone.ToString().Length != 11) throw new ArgumentException("Numero de telefone inválido");
+            if(client.NrTelefone.ToString().Length != 11) throw new ArgumentException("Numero de telefone inválido");
 
-            // if(client.NrCelular.ToString().Length != 11) throw new ArgumentException("Numero de celular inválido");
+            if(client.NrCelular.ToString().Length != 11) throw new ArgumentException("Numero de celular inválido");
 
-            // if(client.NrResidencia == 0) throw new ArgumentException("Numero de residencia invalido");
+            if(client.NrResidencia == 0) throw new ArgumentException("Numero de residencia invalido");
 
-            // if(client.NrCpf.ToString().Length != 11) throw new ArgumentException("CPF invalido");
+            if(client.NrCpf.ToString().Length != 11) throw new ArgumentException("CPF invalido");
 
-            // if(client.NrCnh.ToString().Length != 11) throw new ArgumentException("CNH invalido");
+            if(client.NrCnh.ToString().Length != 11) throw new ArgumentException("CNH invalido");
 
             return db.Cadastrar(client);
         }

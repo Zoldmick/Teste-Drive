@@ -26,5 +26,11 @@ namespace backend.Controllers
                 );
             }
         }
+
+        [HttpGet("ping")]
+        public string ping()
+        {
+            return "pong";
+        }
     }
 }

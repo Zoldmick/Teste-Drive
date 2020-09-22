@@ -6,7 +6,7 @@ namespace backend.Models.Request
     {
         public int Veiculo { get; set; }
         public DateTime Data { get; set; }
-        public int Cliente { get; set; }
+        public int Login { get; set; }
         public string Acompanhante { get; set; }
     }
 }

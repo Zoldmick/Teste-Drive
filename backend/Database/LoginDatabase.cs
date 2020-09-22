@@ -17,9 +17,18 @@ namespace backend.Database
             return ctx.TbLogin.FirstOrDefault(x => x.IdLogin == id).NrCodigoAlteracao;
         }
 
-        public int? ConsultarEmail(string email)
+        public Models.TbLogin ConsultarEmail(string email)
         {
-            return ctx.TbLogin.FirstOrDefault(x => x.DsEmail == email).NrCodigoAlteracao;
+            return ctx.TbLogin.FirstOrDefault(x => x.DsEmail == email);
+        }
+
+        public int? RedefinirCodigo(string email)
+        {
+            Models.TbLogin login = ctx.TbLogin.FirstOrDefault(x => x.DsEmail == email);
+            Random rand = new Random();
+            login.NrCodigoAlteracao = rand.Next(100000,999999);
+            ctx.SaveChanges();
+            return login.NrCodigoAlteracao;
         }
         public Models.TbLogin RedefinirSenha(int id, string senha)
         {
@@ -27,8 +36,7 @@ namespace backend.Database
             login.DsSenha = senha;
             ctx.SaveChanges();
 
-            Random rand = new Random();
-            login.NrCodigoAlteracao = rand.Next(100000,999999);
+            login.NrCodigoAlteracao = null;
             ctx.SaveChanges();
 
             return login;
