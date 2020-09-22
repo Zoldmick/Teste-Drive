@@ -28,11 +28,12 @@ namespace backend.Models
         public bool BtCarroPcd { get; set; }
         [Column("ds_adaptacao", TypeName = "varchar(255)")]
         public string DsAdaptacao { get; set; }
-        [Required]
         [Column("ds_imagem", TypeName = "varchar(255)")]
         public string DsImagem { get; set; }
         [Column("dt_ano_modelo", TypeName = "date")]
         public DateTime DtAnoModelo { get; set; }
+        [Column("bt_disponivel")]
+        public bool BtDisponivel { get; set; }
         [Required]
         [Column("ds_cor", TypeName = "varchar(55)")]
         public string DsCor { get; set; }
@@ -42,8 +43,6 @@ namespace backend.Models
         [Required]
         [Column("ds_marca", TypeName = "varchar(100)")]
         public string DsMarca { get; set; }
-        [Column("bt_disponivel")]
-        public bool? BtDisponivel { get; set; }
 
         [InverseProperty("IdVeiculoNavigation")]
         public virtual ICollection<TbAgendamento> TbAgendamento { get; set; }

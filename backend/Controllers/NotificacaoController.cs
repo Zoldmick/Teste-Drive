@@ -64,6 +64,7 @@ namespace backend.Controllers
         {
             try
             {
+                Console.WriteLine("Controller");
                 return conv.ParaListaResponse(buss.DeletarLista(ids));
             }
             catch (Exception ex)

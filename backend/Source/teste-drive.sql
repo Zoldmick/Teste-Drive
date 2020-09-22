@@ -39,13 +39,13 @@ create table tb_cliente (
 id_cliente 			int primary key auto_increment,
 id_login			int not null,
 nm_cliente 			varchar(100) not null,
-nr_cpf 				varchar(11) not null,
-nr_cnh				varchar(11) not null,
+nr_cpf 				int not null,
+nr_cnh				int not null,
 dt_nascimeto		date,
 ds_imagem 			varchar(255),
 ds_endereco 		varchar(255) not null,
-nr_celular  		varchar(11) not null,
-nr_telefone 		varchar(11) not null,
+nr_celular  		int not null,
+nr_telefone 		int not null,
 nr_residencia		int not null,
 bt_deficiente		bool not null,
 FOREIGN KEY (id_login) REFERENCES tb_login(id_login) on delete cascade
@@ -79,6 +79,4 @@ show tables;
 insert into tb_veiculo(ds_modelo,ds_placa,ds_marca,vl_valor_veiculo,bt_carro_pcd,dt_ano_modelo,ds_cor,ds_combustivel,bt_disponivel)
 values ('HB20','rbv-5231','renault',30.000,false,date('2020-01-01'),'preto','Gasolina',true);
 
-insert into tb_cliente(id_login,nm_cliente,nr_cpf,nr_cnh,ds_endereco,nr_celular,nr_telefone,nr_residencia,bt_deficiente)
-values (1,'jose carlos','12345678900','12345678910','R. Alvares cabral',1195235648,11568975564,56,false);
 select * from tb_veiculo;

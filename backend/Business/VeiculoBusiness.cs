@@ -9,9 +9,8 @@ namespace backend.Business
         public List<Models.TbVeiculo> Consultar(bool pcd)
         {
            List<Models.TbVeiculo> ret = db.Consultar(pcd);
-           
+           Console.WriteLine($"{ret[0]}");
            if(ret == null) throw new ArgumentException("Nenhum carro encontrado");
-
            return ret;
         }
     }

@@ -22,7 +22,7 @@ namespace backend.Utils
                 id = tb.IdNotificacao,
                 login = tb.IdLogin,
                 mensagem = tb.DsMensagem,
-                envio = tb.DtEnvio,
+                envio = new DateTime(tb.DtEnvio.Year,tb.DtEnvio.Month,tb.DtEnvio.Day),
                 leitura = tb.DsStatus
             };
         }  
