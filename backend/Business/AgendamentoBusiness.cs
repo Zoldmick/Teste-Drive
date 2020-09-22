@@ -40,6 +40,8 @@ namespace backend.Business
 
             if((tb.DtAgendamento - DateTime.Now).TotalDays < 0) throw new ArgumentException("Data invalida");
 
+            if(tb.DtAgendamento.Year > 2021) throw new ArgumentException("Data muito longe");
+
             if(db.ConsultarVeiculo(tb.IdVeiculo) == null) throw new ArgumentException("O veiculo não foi encontrado");
 
                 tb.IdCliente = db.ConsultaCliente(id).IdCliente;

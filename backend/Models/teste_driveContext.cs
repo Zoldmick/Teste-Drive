@@ -43,6 +43,10 @@ namespace backend.Models
                 entity.HasIndex(e => e.IdVeiculo)
                     .HasName("id_veiculo");
 
+                entity.Property(e => e.DsAcompanhante)
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
                 entity.Property(e => e.DsFeedback)
                     .HasCharSet("latin1")
                     .HasCollation("latin1_swedish_ci");
@@ -62,13 +66,11 @@ namespace backend.Models
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.TbAgendamento)
                     .HasForeignKey(d => d.IdCliente)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("tb_agendamento_ibfk_1");
 
                 entity.HasOne(d => d.IdVeiculoNavigation)
                     .WithMany(p => p.TbAgendamento)
                     .HasForeignKey(d => d.IdVeiculo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("tb_agendamento_ibfk_2");
             });
 
@@ -92,10 +94,25 @@ namespace backend.Models
                     .HasCharSet("latin1")
                     .HasCollation("latin1_swedish_ci");
 
+                entity.Property(e => e.NrCelular)
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.NrCnh)
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.NrCpf)
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
+                entity.Property(e => e.NrTelefone)
+                    .HasCharSet("latin1")
+                    .HasCollation("latin1_swedish_ci");
+
                 entity.HasOne(d => d.IdLoginNavigation)
                     .WithMany(p => p.TbCliente)
                     .HasForeignKey(d => d.IdLogin)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("tb_cliente_ibfk_1");
             });
 
@@ -136,7 +153,6 @@ namespace backend.Models
                 entity.HasOne(d => d.IdLoginNavigation)
                     .WithMany(p => p.TbNotificacao)
                     .HasForeignKey(d => d.IdLogin)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("tb_notificacao_ibfk_1");
             });
 

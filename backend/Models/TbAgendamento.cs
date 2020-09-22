@@ -32,6 +32,8 @@ namespace backend.Models
         public int? NrAvaliacao { get; set; }
         [Column("ds_feedback", TypeName = "varchar(255)")]
         public string DsFeedback { get; set; }
+        [Column("ds_acompanhante", TypeName = "varchar(255)")]
+        public string DsAcompanhante { get; set; }
 
         [ForeignKey(nameof(IdCliente))]
         [InverseProperty(nameof(TbCliente.TbAgendamento))]

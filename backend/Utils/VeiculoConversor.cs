@@ -8,9 +8,9 @@ namespace backend.Utils
     {
         public Models.Response.VeiculoResponse ParaResponse(Models.TbVeiculo tb)
         {
-            return new Models.Response.VeiculoResponse {
+            Models.Response.VeiculoResponse ret = new Models.Response.VeiculoResponse {
+                id = tb.IdVeiculo,
                 Ano = tb.DtAnoModelo,
-                Adaptacao =  tb.DsAdaptacao.Split(','),
                 Pcd = tb.BtCarroPcd,
                 Combustivel = tb.DsCombustivel,
                 Cor = tb.DsCor,
@@ -20,6 +20,12 @@ namespace backend.Utils
                 Placa = tb.DsPlaca,
                 Valor = tb.VlValorVeiculo
             };
+            if(string.IsNullOrEmpty(tb.DsAdaptacao)) return ret;
+
+            else {
+                ret.Adaptacao = tb.DsAdaptacao.Split(",");
+                return ret;
+            }
         }
 
         public List<Models.Response.VeiculoResponse> ParaListaResponse(List<Models.TbVeiculo> tb)
