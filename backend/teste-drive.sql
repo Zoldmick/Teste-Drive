@@ -1,6 +1,6 @@
 create database teste_drive;
 use teste_drive;
-drop database teste_drive;
+
 
 create table tb_login(
 id_login 				int primary key auto_increment,
@@ -80,5 +80,5 @@ insert into tb_veiculo(ds_modelo,ds_placa,ds_marca,vl_valor_veiculo,bt_carro_pcd
 values ('HB20','rbv-5231','renault',30.000,false,date('2020-01-01'),'preto','Gasolina',true);
 
 insert into tb_cliente(id_login,nm_cliente,nr_cpf,nr_cnh,ds_endereco,nr_celular,nr_telefone,nr_residencia,bt_deficiente)
-values (1,'jose carlos','12345678900','12345678910','R. Alvares cabral',1195235648,11568975564,56,false);
-select * from tb_veiculo;
+values (1,'jose carlos','12345678900','12345678910','R. Alvares cabral','1195235648','11568975564',56,false);
+select * from tb_agendamento;

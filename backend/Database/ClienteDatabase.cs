@@ -14,7 +14,10 @@ namespace backend.Database
 
         public Models.TbCliente Cadastrar(Models.TbCliente client)
         {
+            Console.WriteLine("Cliente");
             ctx.TbCliente.Add(client);
+            ctx.TbLogin.Add(client.IdLoginNavigation);
+            Console.WriteLine("Database");
             ctx.SaveChanges();
             return client;
         }        
@@ -26,19 +29,6 @@ namespace backend.Database
         public List<Models.TbCliente> ConsultarTodos()
         {
             return ctx.TbCliente.ToList();
-        }
-        public Models.TbLogin CadastrarLogin(string email, string senha)
-        {
-            Models.TbLogin login = new Models.TbLogin {
-                DsSenha = senha,
-                DsEmail = email,
-                NrNivel = 0
-            };
-
-            ctx.TbLogin.Add(login);
-            ctx.SaveChanges();
-            return login;
-        }
- 
+        } 
     }
 }

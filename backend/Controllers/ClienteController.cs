@@ -36,14 +36,14 @@ namespace backend.Controllers
             {  
                 if(req.Imagem != null)
                 {
+                    Console.WriteLine("POST!!!!");
                     Models.TbCliente client = conv.ParaTabela(req);
-                    Models.TbLogin login =  buss.CadastrarLogin(req.Email,req.Senha);
-                    
                     client.DsImagem = foto.GerarNovoNome(req.Imagem.FileName);
-                    client.IdLogin = login.IdLogin;
 
                     client = buss.Cadastrar(client);
+                    Console.WriteLine("Salvar foto");
                     foto.salvarFoto(req.Imagem.FileName,req.Imagem);
+                    
                     return conv.ParaResponse(client);
                 }
                 else throw new ArgumentException("Não possui imagem");  
@@ -72,7 +72,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpPost("ping")]
+        [HttpGet("ping")]
         public string ping()
         {
             return "pong";

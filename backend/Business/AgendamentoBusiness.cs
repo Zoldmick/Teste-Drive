@@ -9,15 +9,15 @@ namespace backend.Business
         public List<Models.TbAgendamento> Consultar(int id, string status)
         {
             if(status.ToLower() != "pendente" &&
-               status.ToLower() != "conluido" &&
+               status.ToLower() != "concluido" &&
                status.ToLower() != "cancelado" &&
-               status.ToLower() != "aprovados" ) throw new ArgumentException("Coloque o um status valido.");
+               status.ToLower() != "aprovado" ) throw new ArgumentException("Coloque o um status valido.");
 
-            if(db.ConsultarLogin(id) == null) throw new ArgumentException("Clienete não existe");
+            if(db.ConsultarLogin(id) == null) throw new ArgumentException("Cliente não existe");
 
            List<Models.TbAgendamento> ag = db.Consultar(id,status);
 
-           if(ag.Count == 0) throw new ArgumentException("Nenhum registro encontrado");
+           if(ag.Count == 0) throw new ArgumentException("Nenhum agendamento encontrado");
 
            return ag;
         }
@@ -25,9 +25,9 @@ namespace backend.Business
         public Models.TbAgendamento AlterarStatus(int id, string status)
         {
              if(status.ToLower() != "pendente" &&
-               status.ToLower() != "conluido" && 
+               status.ToLower() != "concluido" && 
                status.ToLower() != "cancelado" &&
-               status.ToLower() != "aprovados" ) throw new ArgumentException("Coloque o um status valido.");
+               status.ToLower() != "aprovado" ) throw new ArgumentException("Coloque o um status valido.");
 
              if(db.ConsultarAgendamento(id) == null) throw new ArgumentException("Agendamento não existe");
 

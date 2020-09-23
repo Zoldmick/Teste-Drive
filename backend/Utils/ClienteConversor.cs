@@ -15,7 +15,12 @@ namespace backend.Utils
                BtDeficiente = req.Deficiencia,
                DsEndereco = req.Endereco,
                NrTelefone = req.Telefone,
-               NrResidencia = req.Residencia
+               NrResidencia = req.Residencia,
+               IdLoginNavigation = new Models.TbLogin {
+                   DsSenha = req.Senha,
+                   DsEmail = req.Email,
+                   NrNivel = 0
+               }
             };
         }
 
@@ -23,6 +28,7 @@ namespace backend.Utils
         {
             return new Models.Response.ClienteResponse {
                 Id = tb.IdCliente,
+                Login = tb.IdLogin,
                 Nome = tb.NmCliente,
                 Celular = tb.NrCelular,
                 Nascimento = tb.DtNascimeto,

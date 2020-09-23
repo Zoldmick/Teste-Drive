@@ -17,7 +17,6 @@ namespace backend.Controllers
         {
             try
             {
-                Console.WriteLine("Controller");
                return conv.ParaListaResponse(buss.Consultar(id,status));
             }
             catch (Exception ex)
@@ -41,7 +40,7 @@ namespace backend.Controllers
                 );
             }
         }
-        [HttpPut("Avafeed")] // Avaliação e Feddback
+        [HttpPut("AlterarAF")] // Avaliação e Feddback
         public ActionResult<Models.Response.AgendamentoResponse> AlterarAvaFeed(int id, int avaliacao,string feedback)
         {
             try

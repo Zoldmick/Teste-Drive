@@ -19,8 +19,6 @@ namespace backend.Business
 
             if((DateTime.Now.Year - client.DtNascimeto.Value.Year) < 18) throw new ArgumentException("Menor de idade não pode fazer cadastro");
 
-            if(db.ConsultarLogin(client.IdLogin) == null) throw new ArgumentException("Login não existe");
-
             if(string.IsNullOrEmpty(client.NmCliente)) throw new ArgumentException("Nome do cliente está nulo");
 
             Func<string,bool> r = (a) => {
@@ -36,28 +34,23 @@ namespace backend.Business
 
             if(r(client.NmCliente)) throw new ArgumentException("Colocar nome completo");
 
-            if(client.NrTelefone.ToString().Length != 11) throw new ArgumentException("Numero de telefone inválido");
+            if(client.NrTelefone.Length != 11) throw new ArgumentException("Numero de telefone inválido");
 
-            if(client.NrCelular.ToString().Length != 11) throw new ArgumentException("Numero de celular inválido");
+            if(client.NrCelular.Length != 11) throw new ArgumentException("Numero de celular inválido");
 
             if(client.NrResidencia == 0) throw new ArgumentException("Numero de residencia invalido");
 
-            if(client.NrCpf.ToString().Length != 11) throw new ArgumentException("CPF invalido");
+            if(client.NrCpf.Replace("-","").Length != 11) throw new ArgumentException("CPF invalido");
 
-            if(client.NrCnh.ToString().Length != 11) throw new ArgumentException("CNH invalido");
+            if(client.NrCnh.Replace("-","").Length != 11) throw new ArgumentException("CNH invalido");
 
-            return db.Cadastrar(client);
-        }
+            if(string.IsNullOrEmpty(client.IdLoginNavigation.DsEmail)) throw new ArgumentException("Email está vazio");
 
-        public Models.TbLogin CadastrarLogin(string email, string senha)
-        {
-            if(string.IsNullOrEmpty(email)) throw new ArgumentException("Email está vazio");
+            if(string.IsNullOrEmpty(client.IdLoginNavigation.DsSenha)) throw new ArgumentException("Senha está vazio"); 
 
-            if(string.IsNullOrEmpty(senha)) throw new ArgumentException("Senha está vazio"); 
+            if(!(client.IdLoginNavigation.DsEmail.ToLower().Contains(".com"))) throw new ArgumentException("Email inválido");
 
-            if(!(email.ToLower().Contains(".com"))) throw new ArgumentException("Email inválido");
-
-            if(!(email.ToLower().Contains("@gmail") || email.ToLower().Contains("@outlook"))) throw new ArgumentException("Email inválido");
+            if(!(client.IdLoginNavigation.DsEmail.ToLower().Contains("@gmail") || client.IdLoginNavigation.DsEmail.ToLower().Contains("@outlook"))) throw new ArgumentException("Email inválido");
             
             Func<string, bool> senhaForte = (s) => {
                 int esp = 0, num = 0;
@@ -69,8 +62,9 @@ namespace backend.Business
                 return esp >= 2 && num >= 2;
             };
 
-            if(senhaForte(senha) && senha.Length >= 8) throw new ArgumentException("Senha fraca. Tente outra senha");
-            return db.CadastrarLogin(email,senha);
+            if(senhaForte(client.IdLoginNavigation.DsSenha) && client.IdLoginNavigation.DsSenha.Length >= 8) throw new ArgumentException("Senha fraca. Tente outra senha");
+
+            return db.Cadastrar(client);
         }
     }
 }
