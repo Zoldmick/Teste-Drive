@@ -16,6 +16,7 @@ namespace backend.Database
         {
             Console.WriteLine("Cliente");
             ctx.TbCliente.Add(client);
+            // Console.
             ctx.TbLogin.Add(client.IdLoginNavigation);
             Console.WriteLine("Database");
             ctx.SaveChanges();

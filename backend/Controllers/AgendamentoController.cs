@@ -12,7 +12,7 @@ namespace backend.Controllers
         Business.AgendamentoBusiness buss = new Business.AgendamentoBusiness();
         Utils.AgendamentoConversor conv = new Utils.AgendamentoConversor();
 
-        [HttpPost("status")]
+        [HttpPost("Status")]
         public ActionResult<List<Models.Response.AgendamentoResponse>> Consultar(int id, string status)
         {
             try
@@ -26,7 +26,7 @@ namespace backend.Controllers
                 );
             }
         }
-        [HttpPut("status")]
+        [HttpPut("Status")]
         public ActionResult<Models.Response.AgendamentoResponse> AlterarStatus(int id, string status)
         {
             try
@@ -40,7 +40,7 @@ namespace backend.Controllers
                 );
             }
         }
-        [HttpPut("AlterarAF")] // Avaliação e Feddback
+        [HttpPut] // Avaliação e Feddback
         public ActionResult<Models.Response.AgendamentoResponse> AlterarAvaFeed(int id, int avaliacao,string feedback)
         {
             try

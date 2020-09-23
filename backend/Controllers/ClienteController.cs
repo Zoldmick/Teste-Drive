@@ -42,6 +42,7 @@ namespace backend.Controllers
 
                     client = buss.Cadastrar(client);
                     Console.WriteLine("Salvar foto");
+                
                     foto.salvarFoto(req.Imagem.FileName,req.Imagem);
                     
                     return conv.ParaResponse(client);

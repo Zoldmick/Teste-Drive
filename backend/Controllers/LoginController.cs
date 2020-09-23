@@ -17,7 +17,7 @@ namespace backend.Controllers
         Business.LoginBusiness buss = new Business.LoginBusiness();
         Utils.LoginConversor conv = new Utils.LoginConversor();
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult<Models.Response.LoginResponse> Consultar(Models.Request.LoginRequest req)
         {
             try
@@ -34,13 +34,13 @@ namespace backend.Controllers
         }
 
         [HttpPost("Senha")]
-        public void RedefinirSenha(string email, string to)
+        public ActionResult<int> RedefinirSenha(string email, string to)
         {
             try
             {
-                int? v = buss.RedefinirSenha(email,to);
+                int[] v = buss.RedefinirSenha(email,to);
                 MailMessage mail = new MailMessage("venanciodacostacarloshenrique@gmail.com",email);
-                mail.Subject = $"{v} é seu codigo de verificação do FlagStaff Car";
+                mail.Subject = $"{v[0]} é seu codigo de verificação do FlagStaff Car";
                 mail.IsBodyHtml = true;
                 mail.Body = "";
                 mail.SubjectEncoding = Encoding.GetEncoding("UTF-8");
@@ -50,10 +50,14 @@ namespace backend.Controllers
                 smtp.Credentials = new NetworkCredential("venanciodacostacarloshenrique@gmail.com","Blizard2020");
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
+
+                return v[1];
             }
             catch (Exception ex)
             {
-               Console.WriteLine(ex.Message);
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,500)
+                );
             }
         }
 

@@ -22,13 +22,13 @@ namespace backend.Database
             return ctx.TbLogin.FirstOrDefault(x => x.DsEmail == email);
         }
 
-        public int? RedefinirCodigo(string email)
+        public int[] RedefinirCodigo(string email)
         {
             Models.TbLogin login = ctx.TbLogin.FirstOrDefault(x => x.DsEmail == email);
             Random rand = new Random();
             login.NrCodigoAlteracao = rand.Next(100000,999999);
             ctx.SaveChanges();
-            return login.NrCodigoAlteracao;
+            return new int[2]{ (int) login.NrCodigoAlteracao ,login.IdLogin};
         }
         public Models.TbLogin RedefinirSenha(int id, string senha)
         {
