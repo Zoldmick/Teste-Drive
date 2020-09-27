@@ -9,7 +9,7 @@ namespace backend.Utils
             return new Models.TbCliente {
                NmCliente =  req.Nome,
                NrCelular = req.Celular,
-               DtNascimeto = req.Nascimento,
+               DtNascimento = req.Nascimento,
                NrCnh = req.Cnh,
                NrCpf = req.Cpf,
                BtDeficiente = req.Deficiencia,
@@ -31,7 +31,7 @@ namespace backend.Utils
                 Login = tb.IdLogin,
                 Nome = tb.NmCliente,
                 Celular = tb.NrCelular,
-                Nascimento = tb.DtNascimeto,
+                Nascimento = tb.DtNascimento,
                 Cnh = tb.NrCnh,
                 Cpf = tb.NrCpf,
                 Deficiencia = tb.BtDeficiente,

@@ -21,12 +21,18 @@ export const ConteudoWrapper = styled.div`
 export const InfosWrapper = styled.div`
     display:flex;
     height:60vh;
-    width:70vw;
+    width:80vw;
 
     box-sizing:border-box;
     align-content:center;
     border:2px solid rgb(0,0,0,0.1);
     
+    @media(max-width:800px){
+        flex-direction:column;
+        height:80vh;
+        width:90vw;
+        margin-top:5px;
+    }
 `;
 
 export const Infos = styled.div`
@@ -38,6 +44,13 @@ export const Infos = styled.div`
     box-sizing:border-box;
     padding:5px 10px;
     border-right:3px solid black;
+
+    @media(max-width:800px){
+        overflow:auto;
+        width:100%;
+        border-right:0;
+        border-bottom:3px solid black;
+    }
 `;
 
 export const InfoLogin = styled.div`
@@ -50,6 +63,11 @@ export const InfoLogin = styled.div`
     align-items:center;
     justify-content:center;
     padding:20px 16px;
+
+    @media(max-width: 800px){
+        width:100%;
+        overflow:auto;
+    }
 `;
 
 export const ContainerButton = styled.div`
@@ -74,7 +92,14 @@ export const ContainerButtonOne = styled.div`
 export const Span = styled.span`
     font-size:12px;
     margin-right:auto;
-    margin-left:40px;
+    margin-left:120px;
+    color:var(--Blue);
+
+    @media(max-width:800px){
+        margin-right:auto;
+        margin-left:10px;
+        margin-bottom:20px;
+    }
 `;
 
 export const H1 = styled.h1`
@@ -86,4 +111,23 @@ export const H1 = styled.h1`
 
     letter-spacing:8px;
     text-decoration:underline;
+
+    @media(max-width:800px){
+        margin-top:5px;
+    }
+`;
+
+export const Custom = styled.div`
+    display:flex;
+
+`;
+
+export const Button = styled.button`
+    height:3vh;
+    margin:0;
+    border:0;
+    margin-top:35px;
+    background:var(--White);
+    padding-top:5px;
+
 `;

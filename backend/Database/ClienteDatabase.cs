@@ -20,6 +20,7 @@ namespace backend.Database
             ctx.TbLogin.Add(client.IdLoginNavigation);
             Console.WriteLine("Database");
             ctx.SaveChanges();
+            Console.WriteLine("Ta Salvo");
             return client;
         }        
         public Models.TbCliente Consultar(int id)

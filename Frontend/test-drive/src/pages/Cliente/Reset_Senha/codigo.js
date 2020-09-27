@@ -6,7 +6,7 @@ function Codigo(){
     return(
         <Page>
             <FormField 
-                label = 'Codigo de reset'
+                label = 'Codigo'
                 type = 'number'
                 name = 'codigo'
             />

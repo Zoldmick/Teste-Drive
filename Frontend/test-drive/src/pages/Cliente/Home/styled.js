@@ -22,6 +22,13 @@ export const InfosWrapper = styled.div`
     padding-left:180px;
     padding-right:180px;
     margin-bottom:10px;
+
+    @media(max-width: 880px){
+        padding-left:20px;
+        padding-right:20px;
+        overflow:auto;
+
+    }
 `;
 
 export const Span = styled.div``;

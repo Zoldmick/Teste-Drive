@@ -18,6 +18,9 @@ export const H1 = styled.h1`
     font-weight:400;
     font-display:oblique;
 
+    @media(max-width:800px){
+        font-size:35px;
+    }
 `;
 
 export const ConteudoWrapper = styled.div`
@@ -31,6 +34,10 @@ export const ConteudoWrapper = styled.div`
     margin-right:auto;
     align-items:center;
     justify-content:center;
+
+    @media(max-width:800px){
+        width:90vw;
+    }
 `;
 
 export const Page = styled.div`
@@ -46,6 +53,11 @@ export const Page = styled.div`
     justify-content:center;
     align-items: center;
 
+    @media(max-width:800px){
+        width:80vw;
+        height:40vh;
+        margin-bottom:40px;
+    }
 `;
 
 export const Span = styled.span`

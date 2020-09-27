@@ -1,11 +1,27 @@
 import React from 'react'
 import FormField from '../../components/FormField'
 import {ButtonMedio, ButtonGrande} from '../../components/Button'
-import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, ContainerButton, ContainerButtonOne, Span, H1 } from './style'
-//import { GrView } from 'react-icons/gr'
+import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, ContainerButton, 
+    ContainerButtonOne, Span, H1,Custom,Button } from './style'
+import { GrView } from 'react-icons/gr'
+import { IconContext } from "react-icons";
+
+function ViewPassword(){
+   let tipo =  document.getElementsByName("senha")[0];
+   if(tipo.type === 'password'){
+        tipo.type = 'text';
+    }else{
+       tipo.type = 'password';
+    }
+};
+
+
+
 
 function Login(){
+
     return(
+
         <PageDefault>
 
             <H1>Flagstaff Car</H1>
@@ -27,36 +43,51 @@ function Login(){
                             incididunt ut labore et dolore magna aliqua. In eu mi bibendum neque. Porttitor 
                             rhoncus dolor purus non. Leo a diam sollicitudin tempor
                         </p>
+
                        <ContainerButton>
+
                             <ButtonGrande
                                 children = 'Cadastra-se'
                                 onClick = "{}"
                             /> 
+
                        </ContainerButton>
                                          
 
                     </Infos>
 
                     <InfoLogin>
+                    
                         <FormField 
                             label = 'E-mail'
                             type = 'text'
                             name = 'e-mail'
                         />
+
+                        <Custom>
+
+                            <FormField 
+                                label = 'Senha'
+                                type = 'password'
+                                name = 'senha'
                             
-                        <FormField 
-                            label = 'Senha'
-                            type = 'password'
-                            name = 'senha'
-                        />
+                            />
+                            <IconContext.Provider value={{ color: "red", size: "20px", margin: "0px" }}>
+                                <Button type = 'Button' onClick={ViewPassword} >
+                                    <GrView />
+                                </Button>
+                            </IconContext.Provider>                                
+                          
+                        </Custom>  
+                         
                         <Span>Redefinir-senha</Span>
                         
                        <ContainerButtonOne>
+
                             <ButtonMedio 
-                            
-                                children = 'Entrar'
-                                onClick = '{}'
+                                children = 'Entrar' 
                             />
+                            
                        </ContainerButtonOne>
 
                     </InfoLogin>

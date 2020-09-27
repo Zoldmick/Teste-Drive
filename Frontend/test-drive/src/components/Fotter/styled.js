@@ -8,6 +8,10 @@ export const PageDefault = styled.div`
     background:var(--Black);
     box-sizing:border-box;
 
+    @media(max-width: 800px){
+        height:30vh;
+    }
+
 `;
 
 export const InfoWrapper = styled.div`

@@ -14,6 +14,10 @@ export const Form = styled.form`
     padding-left:16px;
     padding-right:16px;
     border:2px solid gray;
+
+    @media(max-width:800px){
+        width:90vw;
+    }
 `;
 
 export const FormWrapper = styled.div`
@@ -30,6 +34,10 @@ export const Custom = styled.div`
 
     justify-content:space-between;
     margin-top:10px;
+
+    @media(max-width:800px){
+        flex-direction:column;
+    }
 `;
 
 export const ContButton = styled.div`
@@ -40,6 +48,11 @@ export const ContButton = styled.div`
     box-sizing:border-box;
     margin-top:10px;
     margin-bottom:10px;
+
+    @media(max-width:800px){
+        flex-direction:column;
+        
+    }
 `;
 
 export const H1 = styled.h1`
@@ -52,4 +65,9 @@ export const H1 = styled.h1`
 
     color:var(--Blue);
     margin-bottom:15px;
+
+    @media(max-width:800px){
+        font-size:47px;
+        font-weight:300;
+    }
 `;

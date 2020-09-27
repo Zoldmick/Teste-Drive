@@ -12,6 +12,11 @@ export const PageDefault = styled.div`
     padding-right:20px;
     padding:10px;
     justify-content:space-between;
+
+    @media(max-width: 800px){
+        flex-direction:column;
+        height:35vh;
+    }
 `;
 
 export const NmEmpresa = styled.div`
@@ -35,4 +40,8 @@ export const H1 = styled.h1`
     
     color:black;
     letter-spacing:10px;
+
+    @media(max-width: 800px){
+        text-align:center;
+    }
 `;

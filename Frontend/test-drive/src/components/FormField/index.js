@@ -17,6 +17,11 @@ const Formfield = styled.div`
     display:flex;
     flex-direction:row-reverse
   }
+
+  @media(max-width: 800px){
+    display:flex;
+    flex-direction:column;
+  }
 `;
 
 const Label = styled.label`
@@ -40,7 +45,7 @@ const Input = styled.input`
   border-top-right-radius:16px;
   border-bottom-left-radius:13px;
   border-bottom:5px solid blue;
-  
+
   &[type='checkbox'] + Label {
     height:3vh;
     width:10vw;
@@ -48,6 +53,11 @@ const Input = styled.input`
 
     color:red;
   }
+
+  @media(max-width: 800px){
+    width:70vw;
+  }
+  
 `;
 
 function FormField({

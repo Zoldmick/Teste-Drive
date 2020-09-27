@@ -11,7 +11,7 @@ function Header (){
             <Logotipo>
                 <img src = {Logo} alt="Logotipo Flagstaff Car" height='100' />
             </Logotipo>
-        </PageDefault>  
+        </PageDefault>
     );
 }
 

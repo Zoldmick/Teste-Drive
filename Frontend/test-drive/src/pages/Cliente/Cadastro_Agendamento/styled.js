@@ -20,6 +20,10 @@ export const InfoRegister = styled.div`
     box-sizing:border-box;
     justify-items:center;
     align-items:center; 
+
+    @media(max-width:800px){
+       height:50vh;
+    }
 `;
 
 export const InfoCar = styled.div`
@@ -32,6 +36,10 @@ export const InfoCar = styled.div`
     margin-right:auto;
     margin-bottom:20px;
     margin-top:10px;
+
+    @media(max-width:800px){
+       width:90vw
+    }
 `;
 
 export const ContainerButton = styled.div`
@@ -40,6 +48,11 @@ export const ContainerButton = styled.div`
     width:60vw;
 
     justify-content:space-evenly;
+    @media(max-width:800px){
+        flex-direction:column;
+        height:20vh;
+
+    }
 `;
 
 export const ContainerForm = styled.div`
@@ -50,6 +63,12 @@ export const ContainerForm = styled.div`
     justify-content:space-evenly;
     margin-top:20px;
     margin-bottom:20px;
+
+    @media(max-width:800px){
+        flex-direction:column;
+        height:20vh;
+        margin-top:30px;
+    }
 `;
 
 export const Span = styled.span`

@@ -17,7 +17,6 @@ function NovaSenha() {
                 name = 'senha'
             />
         
-    
         </Page>
     );
 }

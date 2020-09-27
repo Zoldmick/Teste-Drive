@@ -37,19 +37,19 @@ const ButtonG = styled.button`
     }
 `; 
 
-export function ButtonMedio ({ children, onClick }){
+export function ButtonMedio ({ children, onClick, to }){
 
     return(
-        <Button onclick = {onClick} >
+        <Button to = {to}  onclick = {onClick} >
             {children}
         </Button>
     );
 }
 
-export function ButtonGrande ({ children, onClick }){
+export function ButtonGrande ({ children, onClick, to }){
 
     return(
-        <ButtonG onclick = {onClick} >
+        <ButtonG to = {to} onclick = {onClick} >
             {children}
         </ButtonG>
     );

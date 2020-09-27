@@ -44,6 +44,7 @@ namespace backend.Controllers
                     Console.WriteLine("Salvar foto");
                 
                     foto.salvarFoto(req.Imagem.FileName,req.Imagem);
+                    Console.WriteLine("Imagem Salva");
                     
                     return conv.ParaResponse(client);
                 }

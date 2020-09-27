@@ -17,7 +17,7 @@ namespace backend.Business
         {
             if(string.IsNullOrEmpty(client.DsEndereco)) throw new ArgumentException("Adicione um endereço");
 
-            if((DateTime.Now.Year - client.DtNascimeto.Value.Year) < 18) throw new ArgumentException("Menor de idade não pode fazer cadastro");
+            if((DateTime.Now.Year - client.DtNascimento.Value.Year) < 18) throw new ArgumentException("Menor de idade não pode fazer cadastro");
 
             if(string.IsNullOrEmpty(client.NmCliente)) throw new ArgumentException("Nome do cliente está nulo");
 

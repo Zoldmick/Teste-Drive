@@ -13,7 +13,7 @@ namespace backend.Business
 
        public void salvarFoto(string nome, IFormFile imagem)
        {
-           string caminho = Path.Combine(AppContext.BaseDirectory,"Storage","Foto",nome);
+           string caminho = Path.Combine(AppContext.BaseDirectory,"Storage","Fotos",nome);
            Console.WriteLine(caminho);
            using(FileStream s = new FileStream(caminho,FileMode.Create))
            {
