@@ -36,7 +36,7 @@ namespace backend.Business
 
             if(r(client.NmCliente)) throw new ArgumentException("Colocar nome completo");
 
-            // if(db.ConsultarTodos().Any(x => x.DsCpf == client.DsCpf)) throw new ArgumentException("CPF já existe.");
+            if(db.ConsultarTodos().Any(x => x.DsCpf == client.DsCpf)) throw new ArgumentException("CPF já existe.");
 
             if(client.DsTelefone.Replace("-","").Length != 11) throw new ArgumentException("Numero de telefone inválido");
 
@@ -58,17 +58,6 @@ namespace backend.Business
 
         public void Seem(string senha, string email)
         {
-            Func<string, bool> senhaForte = (s) => {
-                    int esp = 0, num = 0;
-                    foreach(char letra in s)
-                    {
-                        int conv = (int)(letra.ToString().ToLower())[0];
-                        if(conv >= 48 && conv <= 57) num += 1;
-                        else if(conv < 48 || conv > 122) esp += 1; 
-                    }
-                    return esp >= 2 && num >= 2;
-                };
-
             if(string.IsNullOrEmpty(email)) throw new ArgumentException("Email está vazio");
             Console.WriteLine("Validar email");
              
@@ -83,6 +72,8 @@ namespace backend.Business
                     || email.ToLower().Contains("@outlook")
                     || email.ToLower().Contains("@hotmail"))) throw new ArgumentException("Email inválido");
             
+            Func<string, bool> senhaForte = ValidarSenha.SenhaForte();
+
             if(!(senhaForte(senha) && senha.Length >= 8)) throw new ArgumentException("Senha fraca. Tente outra senha");
 
             Console.WriteLine("Validou email e senha");

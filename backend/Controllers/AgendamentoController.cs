@@ -12,7 +12,7 @@ namespace backend.Controllers
         Business.AgendamentoBusiness buss = new Business.AgendamentoBusiness();
         Utils.AgendamentoConversor conv = new Utils.AgendamentoConversor();
 
-        [HttpGet("Status")]
+        [HttpGet("Filtro/Status")]
         public ActionResult<List<Models.Response.AgendamentoResponse>> Consultar(int id, string status)
         {
             try
@@ -40,8 +40,8 @@ namespace backend.Controllers
                 );
             }
         }
-        [HttpPut] // Avaliação e Feddback
-        public ActionResult<Models.Response.AgendamentoResponse> AlterarAvaFeed(int id, int avaliacao,string feedback)
+        [HttpPost] // Avaliação e Feddback
+        public ActionResult<Models.Response.AgendamentoResponse> InserirFeedAva(int id, int avaliacao,string feedback)
         {
             try
             {
@@ -97,6 +97,36 @@ namespace backend.Controllers
             {
                 return new BadRequestObjectResult(
                     new Models.Response.ErrorResponse(ex.Message,404)
+                );
+            }
+        }
+
+        [HttpGet("Filtro/Mes")]
+        public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorMes(int mes)
+        {
+            try
+            {
+                return conv.ParaListaResponse(buss.FiltrarPorMes(mes));
+            }
+            catch(Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message, 404)
+                );
+            }
+        }
+
+        [HttpGet("Filtro/Semana")]
+        public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorSemana(DateTime data)
+        {
+            try
+            {
+                return conv.ParaListaResponse(buss.FiltrarPorSemana(data));
+            }
+            catch(Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message, 404)
                 );
             }
         }

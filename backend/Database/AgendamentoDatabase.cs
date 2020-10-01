@@ -73,6 +73,11 @@ namespace backend.Database
             return ag;
         }
 
+        public List<Models.TbAgendamento> FiltrarPorMes(int mes)
+        {
+            return ctx.TbAgendamento.Where(x => x.DtAgendamento.Month == mes).ToList();
+        }
+
         public List<DateTime> ConsultarHorarios(DateTime dia)
         {
             List<Models.TbAgendamento> ag = ctx.TbAgendamento.Where(x => x.DtAgendamento == dia).ToList();
@@ -89,6 +94,14 @@ namespace backend.Database
                 }
             }
             return date.Select(x => dia.AddHours(x)).ToList();
+        }
+
+        public List<Models.TbAgendamento> FiltrarPorSemana(DateTime data)
+        {
+            int[] semana = ManipulandoDatas.contarData(data);
+
+            return ctx.TbAgendamento.Where(x => x.DtAgendamento.Month == data.Month 
+                                            && semana.Any(y => y == x.DtAgendamento.Day)).ToList();
         }
     }
 }

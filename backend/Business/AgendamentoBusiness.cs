@@ -76,5 +76,25 @@ namespace backend.Business
 
              return db.ConsultarHorarios(new DateTime(dia.Year,dia.Month,dia.Day));             
         }
+
+        public List<Models.TbAgendamento>  FiltrarPorMes(int mes)
+        {
+            if(mes > 12 && mes < 1) throw new ArgumentException("Mês invalido");
+
+            List<Models.TbAgendamento> ags = db.FiltrarPorMes(mes);
+            if(ags == null) throw new ArgumentException("Não foi realizado nenhum agendamento esse mês");
+            return ags;
+        }
+
+        public List<Models.TbAgendamento>  FiltrarPorSemana(DateTime semana)
+        {
+            if(semana.Year != DateTime.Now.Year) throw new ArgumentException("Ano invalido");
+
+            if(semana.Month != DateTime.Now.Month) throw new ArgumentException("Mês invalido");
+
+            List<Models.TbAgendamento> ags = db.FiltrarPorSemana(semana);
+            if(ags == null) throw new ArgumentException("Não foi raelizado nenhum agendamento essa semana");
+            return ags;
+        }
     }
 }
