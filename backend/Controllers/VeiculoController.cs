@@ -12,7 +12,7 @@ namespace backend.Controllers
         Business.VeiculoBusiness buss = new Business.VeiculoBusiness();
         Utils.VeiculoConversor conv = new Utils.VeiculoConversor();
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult<List<Models.Response.VeiculoResponse>> Consultar(bool pcd)
         {
             try

@@ -12,7 +12,7 @@ namespace backend.Controllers
         Business.AgendamentoBusiness buss = new Business.AgendamentoBusiness();
         Utils.AgendamentoConversor conv = new Utils.AgendamentoConversor();
 
-        [HttpPost("Status")]
+        [HttpGet("Status")]
         public ActionResult<List<Models.Response.AgendamentoResponse>> Consultar(int id, string status)
         {
             try
@@ -71,7 +71,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("Horarios")]
         public ActionResult<List<DateTime>> ConsultarHorarios(DateTime dia)
         {
             try
@@ -100,7 +100,7 @@ namespace backend.Controllers
                 );
             }
         }
-        
+
         [HttpGet("ping")]
         public string ping()
         {
