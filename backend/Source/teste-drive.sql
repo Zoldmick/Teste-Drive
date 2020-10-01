@@ -28,24 +28,24 @@ vl_valor_veiculo  	decimal(10,2) not  null,
 bt_carro_pcd		bool not null,
 ds_adaptacao		varchar(255),
 ds_imagem 			varchar(255),
-dt_ano_modelo		date not null,
+dt_ano_modelo		date,
 bt_disponivel 		bool not null,
-ds_cor 				varchar(55) not null,
-ds_combustivel 		varchar(100) not null,
-ds_marca			varchar(100) not null
+ds_cor 				varchar(50),
+ds_combustivel 		varchar(100),
+ds_marca			varchar(100)
 );
 
 create table tb_cliente (
 id_cliente 			int primary key auto_increment,
 id_login			int not null,
 nm_cliente 			varchar(100) not null,
-nr_cpf 				varchar(11) not null,
-nr_cnh				varchar(11) not null,
-dt_nascimeto		date,
+ds_cpf 				varchar(12) not null,
+ds_cnh				varchar(12) not null,
+dt_nascimeto		datetime,
 ds_imagem 			varchar(255),
 ds_endereco 		varchar(255) not null,
-nr_celular  		varchar(11) not null,
-nr_telefone 		varchar(11) not null,
+ds_celular  		varchar(12) not null,
+ds_telefone 		varchar(12) not null,
 nr_residencia		int not null,
 bt_deficiente		bool not null,
 FOREIGN KEY (id_login) REFERENCES tb_login(id_login) on delete cascade
@@ -60,7 +60,7 @@ dt_agendamento 		datetime not null,
 ds_rota_inicial		varchar(255) not null,
 ds_rota_final 		varchar(255) not null,
 ds_status 			varchar(255) not null,
-hr_final 			time not null,
+dt_final 			datetime not null,
 nr_avaliacao		int,
 ds_feedback			varchar(255),
 ds_acompanhante 	varchar(255),
@@ -71,14 +71,13 @@ FOREIGN KEY (id_veiculo) REFERENCES tb_veiculo (id_veiculo) on delete cascade
 
 insert into tb_login(ds_senha,ds_email,nr_codigo_alteracao) values ("kajabksxySLW882272","ex@gmail.com",109100);
 
-drop database teste_drive;
 show tables;
 
-
-
 insert into tb_veiculo(ds_modelo,ds_placa,ds_marca,vl_valor_veiculo,bt_carro_pcd,dt_ano_modelo,ds_cor,ds_combustivel,bt_disponivel)
-values ('HB20','rbv-5231','renault',30.000,false,date('2020-01-01'),'preto','Gasolina',true);
+values ('HB20','rbv-5931','renault',30.000,false,'2020-01-01','preto','Gasolina',true);
 
-insert into tb_cliente(id_login,nm_cliente,nr_cpf,nr_cnh,ds_endereco,nr_celular,nr_telefone,nr_residencia,bt_deficiente)
+insert into tb_cliente(id_login,nm_cliente,ds_cpf,ds_cnh,ds_endereco,ds_celular,ds_telefone,nr_residencia,bt_deficiente)
 values (1,'jose carlos','12345678900','12345678910','R. Alvares cabral','1195235648','11568975564',56,false);
-select * from tb_agendamento;
+select * from tb_cliente;
+select * from tb_veiculo;
+select * from tb_login;

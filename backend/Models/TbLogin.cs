@@ -15,9 +15,9 @@ namespace backend.Models
         }
 
         [Key]
-        [Column("id_login", TypeName = "int(11)")]
+        [Column("id_login")]
         public int IdLogin { get; set; }
-        [Column("nr_nivel", TypeName = "int(11)")]
+        [Column("nr_nivel")]
         public int NrNivel { get; set; }
         [Required]
         [Column("ds_senha", TypeName = "varchar(255)")]
@@ -25,7 +25,7 @@ namespace backend.Models
         [Required]
         [Column("ds_email", TypeName = "varchar(255)")]
         public string DsEmail { get; set; }
-        [Column("nr_codigo_alteracao", TypeName = "int(11)")]
+        [Column("nr_codigo_alteracao")]
         public int? NrCodigoAlteracao { get; set; }
 
         [InverseProperty("IdLoginNavigation")]

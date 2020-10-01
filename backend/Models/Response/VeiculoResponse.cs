@@ -11,7 +11,7 @@ namespace backend.Models.Response
         public bool Pcd { get; set; }
         public string[] Adaptacao { get; set; }
         public string Imagem { get; set; }
-        public DateTime Ano { get; set; }
+        public DateTime? Ano { get; set; }
         public string Cor { get; set; }
         public string Combustivel { get; set; }
         public string Marca { get; set; }

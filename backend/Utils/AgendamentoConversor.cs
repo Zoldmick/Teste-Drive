@@ -15,7 +15,7 @@ namespace backend.Utils
                 Inicial = tb.DsRotaInicial,
                 Status = tb.DsStatus,
                 Data = tb.DtAgendamento,
-                HoraFinal = tb.HrFinal,
+                HoraFinal = tb.DtFinal,
                 Avaliacao = tb.NrAvaliacao,
                 Cliente = tb.IdCliente,
                 Veiculo = tb.IdVeiculo
@@ -31,7 +31,7 @@ namespace backend.Utils
               DtAgendamento = req.Data,
               DsAcompanhante = req.Acompanhante,
               IdVeiculo = req.Veiculo,
-              HrFinal = TimeSpan.Parse(req.Data.AddMinutes(30).ToLongTimeString()),        
+              DtFinal = req.Data.AddMinutes(40)   
             };
         }
         public List<Models.Response.AgendamentoResponse> ParaListaResponse(List<Models.TbAgendamento> tbs)

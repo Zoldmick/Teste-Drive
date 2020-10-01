@@ -14,36 +14,36 @@ namespace backend.Models
         }
 
         [Key]
-        [Column("id_cliente", TypeName = "int(11)")]
+        [Column("id_cliente")]
         public int IdCliente { get; set; }
-        [Column("id_login", TypeName = "int(11)")]
+        [Column("id_login")]
         public int IdLogin { get; set; }
         [Required]
         [Column("nm_cliente", TypeName = "varchar(100)")]
         public string NmCliente { get; set; }
         [Required]
-        [Column("nr_cpf", TypeName = "varchar(11)")]
-        public string NrCpf { get; set; }
+        [Column("ds_cpf", TypeName = "varchar(12)")]
+        public string DsCpf { get; set; }
         [Required]
-        [Column("nr_cnh", TypeName = "varchar(11)")]
-        public string NrCnh { get; set; }
+        [Column("ds_cnh", TypeName = "varchar(12)")]
+        public string DsCnh { get; set; }
+        [Column("dt_nascimeto", TypeName = "datetime")]
+        public DateTime? DtNascimeto { get; set; }
         [Column("ds_imagem", TypeName = "varchar(255)")]
         public string DsImagem { get; set; }
         [Required]
         [Column("ds_endereco", TypeName = "varchar(255)")]
         public string DsEndereco { get; set; }
         [Required]
-        [Column("nr_celular", TypeName = "varchar(11)")]
-        public string NrCelular { get; set; }
+        [Column("ds_celular", TypeName = "varchar(12)")]
+        public string DsCelular { get; set; }
         [Required]
-        [Column("nr_telefone", TypeName = "varchar(11)")]
-        public string NrTelefone { get; set; }
-        [Column("nr_residencia", TypeName = "int(11)")]
+        [Column("ds_telefone", TypeName = "varchar(12)")]
+        public string DsTelefone { get; set; }
+        [Column("nr_residencia")]
         public int NrResidencia { get; set; }
         [Column("bt_deficiente")]
         public bool BtDeficiente { get; set; }
-        [Column("dt_nascimento", TypeName = "datetime")]
-        public DateTime? DtNascimento { get; set; }
 
         [ForeignKey(nameof(IdLogin))]
         [InverseProperty(nameof(TbLogin.TbCliente))]

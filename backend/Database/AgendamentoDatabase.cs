@@ -46,6 +46,13 @@ namespace backend.Database
             return ag;
         }
 
+        public Models.TbAgendamento Deletar (Models.TbAgendamento tb)
+        {
+            ctx.TbAgendamento.Remove(tb);
+            ctx.SaveChanges();
+            return tb;
+        }
+
         public Models.TbAgendamento Cadastrar(Models.TbAgendamento tb)
         {
             ctx.TbAgendamento.Add(tb);

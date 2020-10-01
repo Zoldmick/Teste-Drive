@@ -14,7 +14,7 @@ namespace backend.Models
         }
 
         [Key]
-        [Column("id_veiculo", TypeName = "int(11)")]
+        [Column("id_veiculo")]
         public int IdVeiculo { get; set; }
         [Required]
         [Column("ds_modelo", TypeName = "varchar(255)")]
@@ -31,16 +31,13 @@ namespace backend.Models
         [Column("ds_imagem", TypeName = "varchar(255)")]
         public string DsImagem { get; set; }
         [Column("dt_ano_modelo", TypeName = "date")]
-        public DateTime DtAnoModelo { get; set; }
+        public DateTime? DtAnoModelo { get; set; }
         [Column("bt_disponivel")]
         public bool BtDisponivel { get; set; }
-        [Required]
-        [Column("ds_cor", TypeName = "varchar(55)")]
+        [Column("ds_cor", TypeName = "varchar(50)")]
         public string DsCor { get; set; }
-        [Required]
         [Column("ds_combustivel", TypeName = "varchar(100)")]
         public string DsCombustivel { get; set; }
-        [Required]
         [Column("ds_marca", TypeName = "varchar(100)")]
         public string DsMarca { get; set; }
 

@@ -8,9 +8,9 @@ namespace backend.Business
         Database.AgendamentoDatabase db = new Database.AgendamentoDatabase();
         public List<Models.TbAgendamento> Consultar(int id, string status)
         {
-            if(status.ToLower() != "pendente" &&
-               status.ToLower() != "concluido" &&
-               status.ToLower() != "cancelado" &&
+            if(status.ToLower() != "pendente" &
+               status.ToLower() != "concluido" &
+               status.ToLower() != "cancelado" &
                status.ToLower() != "aprovado" ) throw new ArgumentException("Coloque o um status valido.");
 
             if(db.ConsultarLogin(id) == null) throw new ArgumentException("Cliente não existe");
@@ -21,7 +21,14 @@ namespace backend.Business
 
            return ag;
         }
-        
+
+        public Models.TbAgendamento Deletar (int id)
+        {
+            Models.TbAgendamento tb = db.ConsultarAgendamento(id);
+            if(tb == null) throw new ArgumentException("Agendamento não exite");
+
+            return db.Deletar(tb);
+        }        
         public Models.TbAgendamento AlterarStatus(int id, string status)
         {
              if(status.ToLower() != "pendente" &&

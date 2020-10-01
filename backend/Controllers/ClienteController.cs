@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace backend.Controllers
 {
     [ApiController]
@@ -38,12 +39,13 @@ namespace backend.Controllers
                 {
                     Console.WriteLine("POST!!!!");
                     Models.TbCliente client = conv.ParaTabela(req);
+                    Console.WriteLine("Converteu!");
                     client.DsImagem = foto.GerarNovoNome(req.Imagem.FileName);
-
-                    client = buss.Cadastrar(client);
+                    Console.WriteLine("Vai entrar na business");
+                    client = buss.Cadastrar(client, req.Email, req.Senha);
                     Console.WriteLine("Salvar foto");
-                
-                    foto.salvarFoto(req.Imagem.FileName,req.Imagem);
+
+                    foto.salvarFoto(client.DsImagem,req.Imagem);
                     Console.WriteLine("Imagem Salva");
                     
                     return conv.ParaResponse(client);
@@ -57,6 +59,7 @@ namespace backend.Controllers
                 );
             }
         }
+
 
         [HttpGet("Foto/{nome}")]
         public ActionResult BuscarFoto(string nome)

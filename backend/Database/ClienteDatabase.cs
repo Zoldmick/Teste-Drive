@@ -7,22 +7,19 @@ namespace backend.Database
     {
         Models.teste_driveContext ctx = new Models.teste_driveContext();
 
-        public Models.TbLogin ConsultarLogin(int id)
+        public Models.TbCliente Cadastrar(Models.TbCliente client, string senha, string email)
         {
-          return ctx.TbLogin.FirstOrDefault(x => x.IdLogin == id);
-        }
-
-        public Models.TbCliente Cadastrar(Models.TbCliente client)
-        {
-            Console.WriteLine("Cliente");
-            ctx.TbCliente.Add(client);
-            // Console.
-            ctx.TbLogin.Add(client.IdLoginNavigation);
-            Console.WriteLine("Database");
+            Models.TbLogin Login = new Models.TbLogin{
+                DsEmail = email,
+                DsSenha = senha,
+                TbCliente = new List<Models.TbCliente>{ client }
+            };
+            Console.WriteLine("Database");            
+            ctx.TbLogin.Add(Login);
             ctx.SaveChanges();
             Console.WriteLine("Ta Salvo");
             return client;
-        }        
+        }  
         public Models.TbCliente Consultar(int id)
         {
             return ctx.TbCliente.FirstOrDefault(x => x.IdLogin == id);
@@ -32,5 +29,10 @@ namespace backend.Database
         {
             return ctx.TbCliente.ToList();
         } 
+
+        public List<Models.TbLogin> ConsultarLogins()
+        {
+            return ctx.TbLogin.ToList();
+        }
     }
 }

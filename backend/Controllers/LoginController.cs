@@ -76,7 +76,7 @@ namespace backend.Controllers
             }
         }
         
-        [HttpPost("ping")]
+        [HttpGet("ping")]
         public string ping()
         {
             return "pong";

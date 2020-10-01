@@ -8,19 +8,14 @@ namespace backend.Utils
         {
             return new Models.TbCliente {
                NmCliente =  req.Nome,
-               NrCelular = req.Celular,
-               DtNascimento = req.Nascimento,
-               NrCnh = req.Cnh,
-               NrCpf = req.Cpf,
+               DsCelular = req.Celular,
+               DtNascimeto = req.Nascimento,
+               DsCnh = req.Cnh,
+               DsCpf = req.Cpf,
                BtDeficiente = req.Deficiencia,
                DsEndereco = req.Endereco,
-               NrTelefone = req.Telefone,
+               DsTelefone = req.Telefone,
                NrResidencia = req.Residencia,
-               IdLoginNavigation = new Models.TbLogin {
-                   DsSenha = req.Senha,
-                   DsEmail = req.Email,
-                   NrNivel = 0
-               }
             };
         }
 
@@ -30,13 +25,13 @@ namespace backend.Utils
                 Id = tb.IdCliente,
                 Login = tb.IdLogin,
                 Nome = tb.NmCliente,
-                Celular = tb.NrCelular,
-                Nascimento = tb.DtNascimento,
-                Cnh = tb.NrCnh,
-                Cpf = tb.NrCpf,
+                Celular = tb.DsCelular,
+                Nascimento = tb.DtNascimeto,
+                Cnh = tb.DsCnh,
+                Cpf = tb.DsCpf,
                 Deficiencia = tb.BtDeficiente,
                 Endereco = tb.DsEndereco,
-                Telefone = tb.NrTelefone,
+                Telefone = tb.DsTelefone,
                 Residencia = tb.NrResidencia,
                 imagem = tb.DsImagem
             };

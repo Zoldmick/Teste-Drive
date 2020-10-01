@@ -37,12 +37,10 @@ namespace backend.Business
             foreach(int id in ids)
             {
                 Models.TbNotificacao nit = db.ConsultarNit(id);
-                if(nit != null) db.Deletar(nit);
+                if(nit != null && nit.DsStatus.ToLower() != "não lido") db.Deletar(nit);
 
                 else noexcluir.Add(nit);
             }
-
-            if(noexcluir.Count != 0) throw new ArgumentException("Teve registros que não foram excluidos");
 
             return noexcluir;
         }
