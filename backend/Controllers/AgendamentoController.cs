@@ -102,11 +102,11 @@ namespace backend.Controllers
         }
 
         [HttpGet("Filtro/Mes")]
-        public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorMes(int mes)
+        public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorMes(int id,int mes)
         {
             try
             {
-                return conv.ParaListaResponse(buss.FiltrarPorMes(mes));
+                return conv.ParaListaResponse(buss.FiltrarPorMes(id,mes));
             }
             catch(Exception ex)
             {
@@ -117,11 +117,11 @@ namespace backend.Controllers
         }
 
         [HttpGet("Filtro/Semana")]
-        public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorSemana(DateTime data)
+        public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorSemana(int id,DateTime data)
         {
             try
             {
-                return conv.ParaListaResponse(buss.FiltrarPorSemana(data));
+                return conv.ParaListaResponse(buss.FiltrarPorSemana(id,data));
             }
             catch(Exception ex)
             {
