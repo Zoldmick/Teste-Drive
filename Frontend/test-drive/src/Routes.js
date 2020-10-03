@@ -18,7 +18,8 @@ function Routes () {
 
                                     /* Cliente */
                 <Route path = '/register' component = {RegisterCliente} exact  />
-                <Route path = '/cliente/agendamento' component = {Register} exact /> 
+                <Route path = '/cliente/agendamento' comp
+                onent = {Register} exact /> 
                 <Route path = '/cliente/detalhes-do-agendamento' component = {Details_Schedule} exact/>
                 <Route path = '/reset' component = {ResetSenha} exact /> 
                                     
