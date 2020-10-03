@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-//import InputMask from 'react-input-mask';
+import InputMask from 'react-input-mask';
 
 const Formfield = styled.div`
   position:relative;
@@ -60,24 +60,54 @@ const Input = styled.input`
   
 `;
 
-function FormField({
-    label, type, name
-  }) {
-    const fieldId = `id_${name}`;
+export function FormField({label, type, name, value, onChange}) {
+  const fieldId = `id_${name}`;
+  const isType = type === 'textarea';
+  const tag = isType      ? 'textarea' 
+                          : 'input'
 
-    return (
-      <Formfield>
-        <Label  htmlFor={fieldId}>
-          {label}
-        </Label>
-        <Input
-          id={fieldId}
-          type={type}  
-          name={name} 
-    
-        />  
-      </Formfield>
-    );
-  }
+  return (
 
-export default FormField;
+    <Formfield>
+
+      <Label  htmlFor={fieldId}>
+        {label}
+      </Label>
+
+      <Input
+        as = {tag}
+        id={fieldId}
+        type={type}  
+        name={name} 
+        value = {value}
+        onChange = {onChange}
+        
+      />  
+
+    </Formfield>
+  );  
+}
+
+export function FormFieldMask({label, type, name, value, onChange, mask}){
+  const fieldId = `id_${name}`;
+
+  return(
+    <Formfield>
+
+      <Label  htmlFor={fieldId}>
+        {label}
+      </Label>
+
+      <Input
+        id={fieldId}
+        type={type}  
+        name={name} 
+        value = {value}
+        onChange = {onChange}
+        mask = {mask}
+      />  
+
+    </Formfield>
+  );
+
+}

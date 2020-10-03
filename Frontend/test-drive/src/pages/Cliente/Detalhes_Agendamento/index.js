@@ -1,32 +1,9 @@
 import React from 'react'
 //import { Fade } from 'react-bootstrap'
-import FormField from '../../../components/FormField'
+import {FormField} from '../../../components/FormField'
 import {ButtonMedio,ButtonGrande} from '../../../components/Button'
 import {PageDefault,Header,H1, InfoWrapper, Custom, FeedWrapper , H3 , ContButton, CometiWrapper} from './styled'
-//import {Loader, LoaderOptions } from 'google-maps'
-
-/*function inicializar() {
-    var coordenadas = {lat: -23.716267, lng: -46.683243};
-
-    var mapa = new google.maps.Map(document.getElementById('mapa'), {
-      zoom: 15,
-      center: coordenadas 
-    });
-
-    var marker = new google.maps.Marker({
-      position: coordenadas,
-      map: mapa,
-      title: 'Meu marcador'
-    });
-}
-<script>
-    async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpE-1PQJETS6x03KnAF2LO17Zo_h1lnRc&callback=inicializa
-
-    AIzaSyCpE-1PQJETS6x03KnAF2LO17Zo_h1lnRc
-
-    </script>
-*/
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 function Details_Schedule(){
     return(
@@ -95,8 +72,16 @@ function Details_Schedule(){
 
                 <CometiWrapper>
 
-                   
-        
+                    <Map google= {this.props.google} zoom={14}>
+    
+                        <Marker onClick={this.onMarkerClick}
+                            name={'Current location'} />
+
+                        <InfoWindow onClose={this.onInfoWindowClose}>
+                           
+                        </InfoWindow>
+                    </Map>
+                                                 
                 </CometiWrapper>
                 
                 <FormField 
@@ -115,4 +100,6 @@ function Details_Schedule(){
     );
 }
 
-export default Details_Schedule;
+export default GoogleApiWrapper({
+  apiKey: ('YOU_GOOGLE_KEY')
+})(Details_Schedule)

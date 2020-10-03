@@ -1,10 +1,11 @@
 import React from 'react'
-import FormField from '../../components/FormField'
+import {FormField} from '../../components/FormField'
 import {ButtonMedio, ButtonGrande} from '../../components/Button'
 import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, ContainerButton, 
     ContainerButtonOne, Span, H1,Custom,Button } from './style'
 import { GrView } from 'react-icons/gr'
 import { IconContext } from "react-icons";
+import {Link} from 'react-router-dom'
 
 function ViewPassword(){
    let tipo =  document.getElementsByName("senha")[0];
@@ -48,9 +49,10 @@ function Login(){
 
                             <ButtonGrande
                                 children = 'Cadastra-se'
-                                onClick = "{}"
+                                as = {Link}
+                                to = '/register'
+                                
                             /> 
-
                        </ContainerButton>
                                          
 
@@ -66,12 +68,13 @@ function Login(){
 
                         <Custom>
 
-                            <FormField 
+                            <FormField
                                 label = 'Senha'
                                 type = 'password'
                                 name = 'senha'
                             
                             />
+
                             <IconContext.Provider value={{ color: "red", size: "20px", margin: "0px" }}>
                                 <Button type = 'Button' onClick={ViewPassword} >
                                     <GrView />
@@ -79,8 +82,9 @@ function Login(){
                             </IconContext.Provider>                                
                           
                         </Custom>  
-                         
-                        <Span>Redefinir-senha</Span>
+                       
+                        <Span as = {Link} to = '/reset'>Redefinir-senha</Span> 
+                        
                         
                        <ContainerButtonOne>
 

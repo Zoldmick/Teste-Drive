@@ -8,6 +8,7 @@ const Button = styled.button`
     border-radius:8px;
     background:var(--Blue);
 
+    text-align:center;
     font-size:16px;
     font-weight:200;
     font-style:oblique;    
@@ -16,6 +17,7 @@ const Button = styled.button`
     &:hover{
         background:var(--White);
         color:red;
+        border:1px solid  black;
     }
 `; 
 
@@ -26,6 +28,7 @@ const ButtonG = styled.button`
     border-radius:8px;
     background:var(--Blue);
 
+    text-align:center;
     font-size:16px;
     font-weight:200;
     font-style:oblique;    
@@ -34,22 +37,23 @@ const ButtonG = styled.button`
     &:hover{
         background:var(--White);
         color:red;
+        border:1px solid  black;
     }
 `; 
 
-export function ButtonMedio ({ children, onClick, to }){
+export function ButtonMedio ({ children, onClick, to, as }){
 
     return(
-        <Button to = {to}  onclick = {onClick} >
+        <Button as ={as} to = {to}  onclick = {onClick} >
             {children}
         </Button>
     );
 }
 
-export function ButtonGrande ({ children, onClick, to }){
+export function ButtonGrande ({ children, onClick, to, as }){
 
     return(
-        <ButtonG to = {to} onclick = {onClick} >
+        <ButtonG as={as} to ={to} onclick = {onClick} >
             {children}
         </ButtonG>
     );

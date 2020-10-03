@@ -89,3 +89,38 @@ export const H1 = styled.h1`
     color:var(--Blue);
 
 `;
+
+export const Select = styled.select`
+    height:35px;
+    width:25vw;
+
+    text-align:center;
+    font-size:18px;
+    font-display:oblique;
+    font-weight:200;
+    letter-spacing:2px;
+    color:white;
+
+    background:gray;
+    box-sizing:border-box;
+    padding:5px 16px;
+    border-radius:4px;
+
+    overflow:auto;
+`;
+
+export const Option = styled.option`
+    text-align:center;
+    font-size:18px;
+    font-display:oblique;
+    font-weight:300;
+    letter-spacing:2px;
+    
+    color:darkblue;
+    background:white;
+
+    &:hover{
+        background: gray;
+        color:red;
+    }
+`;

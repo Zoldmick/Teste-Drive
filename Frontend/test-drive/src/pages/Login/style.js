@@ -120,14 +120,20 @@ export const H1 = styled.h1`
 export const Custom = styled.div`
     display:flex;
 
+    padding-left:40px;
+    box-sizing:border-box;
 `;
 
 export const Button = styled.button`
     height:3vh;
     margin:0;
-    border:0;
-    margin-top:35px;
-    background:var(--White);
     padding-top:5px;
+    border:0;
+    box-sizing:border-box;
+    background:var(--White);
+
+    @media(max-width:800px){
+        margin-top:35px;
+    }
 
 `;

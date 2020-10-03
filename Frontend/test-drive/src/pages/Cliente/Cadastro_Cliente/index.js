@@ -1,5 +1,5 @@
 import React from 'react'
-import FormField from '../../../components/FormField'
+import {FormField} from '../../../components/FormField'
 //import InputMask from 'react-input-mask';
 import {ButtonMedio} from '../../../components/Button'
 import { PageDefault, H1, Form, FormWrapper, Custom, ContButton} from  './styled'

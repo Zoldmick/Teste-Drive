@@ -3,8 +3,9 @@ import Menu from '../../../components/Header'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Footer from '../../../components/Fotter'
-import {PageDefault, ContainerMenu, InfosWrapper, Span} from './styled'
+import {PageDefault, ContainerMenu, InfosWrapper, Span, Button, Notifica ,NotiWrapper} from './styled'
 import { IconContext } from "react-icons";
+import {Link} from 'react-router-dom'
 
 //Tabelas de consulta 
 import TbAprovados from './aprovados';
@@ -31,16 +32,24 @@ function HomeCliente() {
                     </div>
                 </IconContext.Provider>   
 
-                <IconContext.Provider value={{  size: "30px", margin: "10px"}}>
-                    <div>
-                        <IoIosNotificationsOutline />
-                    </div>
-                </IconContext.Provider>   
+                <Notifica>
+                    <IconContext.Provider value={{  size: "30px", margin: "10px"}}>
 
+                        <Button>
+                            <IoIosNotificationsOutline />
+                        </Button>
+
+                        <NotiWrapper>
+                            
+                        </NotiWrapper>
+
+                    </IconContext.Provider>   
+                </Notifica>
+                
             </ContainerMenu>
             
             <InfosWrapper>
-                   <Span><CgAdd />  Adicionar Agendamento</Span>
+                   <Span as = {Link} to = '/cliente/agendamento'><CgAdd />  Adicionar Agendamento</Span>
             
                 <Tabs defaultActiveKey="Aprovados" id="uncontrolled-tab-example">
                     <Tab eventKey="Aprovados" title="Aprovados">
