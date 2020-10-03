@@ -98,5 +98,5 @@ class Details_Schedule extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ("AIzaSyCGWZzaFc3roC3dMm2z7rnmw1KofA1XDv8")
+  apiKey: ("Chave")
 })(Details_Schedule)
