@@ -8,9 +8,9 @@ namespace backend.Business
         Database.ClienteDatabase db = new Database.ClienteDatabase();
         public Models.TbCliente Consultar(int id)
         {
-            Models.TbLogin login = db.ConsultarLogins().FirstOrDefault(x => x.IdLogin == id);
+            Models.TbCliente login = db.ConsultarLogin(id);
             if(login == null) throw new ArgumentException("ID incorreto");
-            return db.Consultar(login.IdLogin);
+            return db.ConsultarLogin(login.IdLogin);
         }
 
        public Models.TbCliente Cadastrar(Models.TbCliente client, string email, string senha)
@@ -56,12 +56,20 @@ namespace backend.Business
             return db.Cadastrar(client,senha,email);
         }
 
+        public Models.TbCliente Deletar(int id)
+        {
+            Models.TbCliente cliente = db.ConsultarCliente(id);
+
+            if(cliente ==  null) throw new ArgumentException("Cliente não existe");
+            return db.Deletar(cliente);
+        }
+
         public void Seem(string senha, string email)
         {
             if(string.IsNullOrEmpty(email)) throw new ArgumentException("Email está vazio");
             Console.WriteLine("Validar email");
              
-            if(db.ConsultarLogins().FirstOrDefault(x => x.DsEmail == email) != null) throw new ArgumentException("Email já existe. Tente outro");
+            if(db.ConsultarTodos().FirstOrDefault(x => x.IdLoginNavigation.DsEmail == email) != null) throw new ArgumentException("Email já existe. Tente outro");
             Console.WriteLine("Termino de Validar email");
 
             if(string.IsNullOrEmpty(senha)) throw new ArgumentException("Senha está vazio"); 

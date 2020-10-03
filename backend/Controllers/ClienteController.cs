@@ -77,6 +77,21 @@ namespace backend.Controllers
             }
         }
 
+        [HttpDelete]
+        public ActionResult<Models.Response.ClienteResponse> Deletar(int id)
+        {
+            try
+            {
+                return conv.ParaResponse(buss.Deletar(id));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,404)
+                );
+            }
+        }
+
         [HttpGet("ping")]
         public string ping()
         {
