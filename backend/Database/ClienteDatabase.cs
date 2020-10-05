@@ -22,6 +22,11 @@ namespace backend.Database
             return client;
         }  
 
+        public List<Models.TbCliente> ConsultarTodos(string nome)
+        {
+            return ctx.TbCliente.Where(x => x.NmCliente.Contains(nome)).ToList();
+        }
+
         public Models.TbCliente ConsultarCliente(int id)
         {
             return ctx.TbCliente.FirstOrDefault(x => x.IdCliente == id);

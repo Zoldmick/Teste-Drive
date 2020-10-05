@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Collections.Generic;
 using System;
 
 namespace backend.Utils
@@ -35,6 +37,11 @@ namespace backend.Utils
                 Residencia = tb.NrResidencia,
                 imagem = tb.DsImagem
             };
+        }
+
+        public List<Models.Response.ClienteResponse> ParaListaResponse(List<Models.TbCliente> tb)
+        {
+            return tb.Select(x => this.ParaResponse(x)).ToList();
         }
     }
 }
