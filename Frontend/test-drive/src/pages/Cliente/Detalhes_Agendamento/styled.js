@@ -72,7 +72,7 @@ export const FeedWrapper = styled.div`
     display:flex;
     flex-direction:column;
     width:75vw;
-    height:60vh;
+    height:120vh;
     
     padding:18px;
     box-sizing:border-box;
@@ -115,6 +115,25 @@ export const ContButton = styled.div`
 `;
 
 export const CometiWrapper = styled.div`
-    height:400px;
-    width:400px;
+    height:30vh;
+    width:70vw;
+
+    margin-bottom:5px;
+    margin-top:5px;
+    margin-left:auto;
+    margin-right:auto;
+    border:1px solid black;
+`;
+
+
+export const MapContainer = styled.div`
+    display:block;
+    height:80vh;
+    width:70vw;
+
+    margin-bottom:10px;
+    margin-top:5px;
+    margin-left:auto;
+    margin-right:auto;
+    border:1px solid black;
 `;
