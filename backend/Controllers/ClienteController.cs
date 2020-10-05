@@ -30,6 +30,23 @@ namespace backend.Controllers
             }
         }
 
+        [HttpGet("Clientes")] // Funcionario
+        public ActionResult<List<Models.Response.ClienteResponse>> ConsultarTodos(string nome)
+        {
+            try
+            {
+                return conv.ParaListaResponse(buss.ConsultarTodos(nome));
+            }
+            catch(Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
+
+        
+
         [HttpPost]
         public ActionResult<Models.Response.ClienteResponse> Cadastrar([FromForm] Models.Request.ClienteRequest req)
         {

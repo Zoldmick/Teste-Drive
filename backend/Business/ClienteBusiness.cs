@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Linq;
 
@@ -31,6 +32,12 @@ namespace backend.Business
                 }
                 return cont < 2;
             };
+
+            foreach(char letra in client.NmCliente.ToLower())
+            {
+                if((int)letra < 97 || (int)letra > 122) throw new ArgumentException("Um nome só pode conter letras");
+            }
+            #warning adicionar função para não contar o espaço
 
             if(db.ConsultarTodos().Any(x => x.NmCliente.ToLower() == client.NmCliente.ToLower())) throw new ArgumentException("Nome ja existe. Tente outro");
 
@@ -85,6 +92,19 @@ namespace backend.Business
             if(!(senhaForte(senha) && senha.Length >= 8)) throw new ArgumentException("Senha fraca. Tente outra senha");
 
             Console.WriteLine("Validou email e senha");
+        }
+
+        public List<Models.TbCliente> ConsultarTodos(string nome)
+        {
+            foreach(char letra in nome.ToLower())
+            {
+                if((int)letra < 97 || (int)letra > 122) throw new ArgumentException("Um nome só pode conter letras");
+            }
+            #warning adicionar função para não contar o espaço
+
+            // validar cnh
+            // validar cpf
+            return db.ConsultarTodos(nome);
         }
     }
 }

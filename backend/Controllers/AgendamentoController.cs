@@ -26,6 +26,21 @@ namespace backend.Controllers
                 );
             }
         }
+        [HttpGet("Filtro/Cliente")]
+        public ActionResult<List<Models.Response.AgendamentoResponse>> ConsultarCliente(string nome)
+        {
+            try
+            {
+                return conv.ParaListaResponse(buss.ConsultarCliente(nome));
+            }
+            catch(Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
+
         [HttpPut("Status")]
         public ActionResult<Models.Response.AgendamentoResponse> AlterarStatus(int id, string status)
         {

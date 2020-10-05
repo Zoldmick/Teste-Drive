@@ -14,9 +14,9 @@ namespace backend.Models
         }
 
         [Key]
-        [Column("id_cliente")]
+        [Column("id_cliente", TypeName = "int(11)")]
         public int IdCliente { get; set; }
-        [Column("id_login")]
+        [Column("id_login", TypeName = "int(11)")]
         public int IdLogin { get; set; }
         [Required]
         [Column("nm_cliente", TypeName = "varchar(100)")]
@@ -40,7 +40,7 @@ namespace backend.Models
         [Required]
         [Column("ds_telefone", TypeName = "varchar(12)")]
         public string DsTelefone { get; set; }
-        [Column("nr_residencia")]
+        [Column("nr_residencia", TypeName = "int(11)")]
         public int NrResidencia { get; set; }
         [Column("bt_deficiente")]
         public bool BtDeficiente { get; set; }

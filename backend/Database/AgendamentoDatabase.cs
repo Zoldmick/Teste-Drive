@@ -16,6 +16,15 @@ namespace backend.Database
         {
             return ctx.TbCliente.FirstOrDefault(x => x.IdLogin == id);
         }
+
+        public List<Models.TbAgendamento> ConsultarAgendamentosPorCliente(string nome)
+        {
+            return ctx.TbAgendamento.Where(x => x.IdClienteNavigation.NmCliente == nome).ToList();
+        }
+        public Models.TbCliente ConsultarNomeCliente(string nome)
+        {
+            return ctx.TbCliente.FirstOrDefault(x => x.NmCliente == nome);
+        }
         public Models.TbLogin ConsultarLogin(int id)
         {
             return ctx.TbLogin.FirstOrDefault(x => x.IdLogin == id);

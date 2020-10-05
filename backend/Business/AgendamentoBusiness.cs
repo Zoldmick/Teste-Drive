@@ -22,6 +22,23 @@ namespace backend.Business
            return ag;
         }
 
+        public List<Models.TbAgendamento> ConsultarCliente(string nome)
+        {
+            if(string.IsNullOrEmpty(nome)) throw new ArgumentException("Nome esta vazio");
+
+            if(db.ConsultarNomeCliente(nome) ==  null) throw new ArgumentException("Cliente não existe");
+
+            foreach(char letra in nome.ToLower())
+            {
+                if((int)letra < 97 || (int)letra > 122) throw new ArgumentException("Um nome só pode conter letras");
+            }
+            #warning adicionar função para não contar o espaço
+
+            return db.ConsultarAgendamentosPorCliente(nome);
+
+
+        }
+
         public Models.TbAgendamento Deletar (int id)
         {
             Models.TbAgendamento tb = db.ConsultarAgendamento(id);

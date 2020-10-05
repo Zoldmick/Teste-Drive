@@ -9,11 +9,11 @@ namespace backend.Models
     public partial class TbAgendamento
     {
         [Key]
-        [Column("id_agendamento")]
+        [Column("id_agendamento", TypeName = "int(11)")]
         public int IdAgendamento { get; set; }
-        [Column("id_cliente")]
+        [Column("id_cliente", TypeName = "int(11)")]
         public int IdCliente { get; set; }
-        [Column("id_veiculo")]
+        [Column("id_veiculo", TypeName = "int(11)")]
         public int IdVeiculo { get; set; }
         [Column("dt_agendamento", TypeName = "datetime")]
         public DateTime DtAgendamento { get; set; }
@@ -28,7 +28,7 @@ namespace backend.Models
         public string DsStatus { get; set; }
         [Column("dt_final", TypeName = "datetime")]
         public DateTime DtFinal { get; set; }
-        [Column("nr_avaliacao")]
+        [Column("nr_avaliacao", TypeName = "int(11)")]
         public int? NrAvaliacao { get; set; }
         [Column("ds_feedback", TypeName = "varchar(255)")]
         public string DsFeedback { get; set; }

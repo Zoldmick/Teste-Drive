@@ -1,7 +1,6 @@
 create database teste_drive;
 use teste_drive;
 
-
 create table tb_login(
 id_login 				int primary key auto_increment,
 nr_nivel 				int not null default 0,

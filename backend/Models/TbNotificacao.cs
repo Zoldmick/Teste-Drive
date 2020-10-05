@@ -9,9 +9,9 @@ namespace backend.Models
     public partial class TbNotificacao
     {
         [Key]
-        [Column("id_notificacao")]
+        [Column("id_notificacao", TypeName = "int(11)")]
         public int IdNotificacao { get; set; }
-        [Column("id_login")]
+        [Column("id_login", TypeName = "int(11)")]
         public int IdLogin { get; set; }
         [Required]
         [Column("ds_mensagem", TypeName = "varchar(255)")]
