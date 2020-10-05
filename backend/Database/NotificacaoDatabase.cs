@@ -43,6 +43,7 @@ namespace backend.Database
            {
                tb.DsStatus = "lido";
            }
+           
            ctx.SaveChanges();
         }
     }

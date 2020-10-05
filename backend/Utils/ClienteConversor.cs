@@ -33,7 +33,8 @@ namespace backend.Utils
                 Endereco = tb.DsEndereco,
                 Telefone = tb.DsTelefone,
                 Residencia = tb.NrResidencia,
-                imagem = tb.DsImagem
+                imagem = tb.DsImagem,
+                Email = tb.IdLoginNavigation.DsEmail
             };
         }
     }

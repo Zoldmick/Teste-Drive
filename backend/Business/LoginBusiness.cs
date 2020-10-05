@@ -18,7 +18,7 @@ namespace backend.Business
             if(!(to.ToLower().Contains(".com") && to.Contains("@"))) throw new ArgumentException("Email inválido");
 
                 string provedor = to.Substring(to.IndexOf("@") + 1,email.IndexOf(".com")).ToLower();
-            if(!(provedor == "gmail" || provedor == "outlook")) throw new ArgumentException($"Email inválido {provedor}"); 
+            if(!(provedor == "gmail" || provedor == "outlook" || provedor == "yahoo" || provedor == "hotmail")) throw new ArgumentException($"Email inválido {provedor}"); 
 
             if(db.ConsultarEmail(email) == null) throw new ArgumentException("Email não existe");
             
@@ -29,7 +29,7 @@ namespace backend.Business
         {
             if(!(db.ConsultarCodigoSenha(id) == cod)) throw new ArgumentException("Codigo de alteração incorreto");
 
-             Func<string, bool> senhaForte = ValidarSenha.SenhaForte();
+            Func<string, bool> senhaForte = ValidarSenha.SenhaForte();
 
             if(senhaForte(senha)) throw new ArgumentException("Senha fraca. Tente outra senha");
 

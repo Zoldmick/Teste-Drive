@@ -16,6 +16,7 @@ namespace backend.Business
                     }
                     return esp >= 2 && num >= 2;
                 };
+                
             return senhaForte;
         }
     }

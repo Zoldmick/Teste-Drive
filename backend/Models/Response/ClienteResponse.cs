@@ -16,5 +16,7 @@ namespace backend.Models.Response
         public bool Deficiencia { get; set; }
         public string Cnh { get; set; }
         public string imagem { get; set; }
+
+        public string Email { get; set; }
     }
 }
