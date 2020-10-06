@@ -30,9 +30,8 @@ namespace backend.Business
 
             foreach(char letra in nome.ToLower())
             {
-                if((int)letra < 97 || (int)letra > 122) throw new ArgumentException("Um nome só pode conter letras");
+                if(((int)letra < 97 || (int)letra > 122 ) && (int)letra != 32) throw new ArgumentException("Um nome só pode conter letras");
             }
-            #warning adicionar função para não contar o espaço
 
             return db.ConsultarAgendamentosPorCliente(nome);
 

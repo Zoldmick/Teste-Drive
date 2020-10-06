@@ -12,11 +12,11 @@ const ApiCar = new Veiculo();
 function Register (){
 
     const [req, setReq] = useState([]);
-
+    const [pcd,setPcd] = useState(false)
     
     const ConsultCar =  async () => {
         try{
-            const consult = await ApiCar.Consultar();
+            const consult = await ApiCar.Consultar(pcd);
             setReq([...consult])
         }catch(e) {
         }  
@@ -47,7 +47,8 @@ function Register (){
                 <form>
                     <Select name = 'carselect'>
                         <Option value='0' >Selecionar carro para teste</Option>
-                        {req.filter(x => x.pcd = true).map(x => 
+                        {/* Colocar opção para selecionar o pcd*/}
+                        {req.map(x => 
                             <Option value={x.id} >{x.Modelo}</Option>
                         )}
                     </Select>
@@ -56,7 +57,7 @@ function Register (){
 
                         <FormField 
                             label = 'Data/Hora'
-                            type = 'datetime-local'
+                            type = 'datetime-local' 
                             name = 'data/hora'
                             />
                         <FormField 

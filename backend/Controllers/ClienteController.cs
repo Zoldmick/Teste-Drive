@@ -15,7 +15,7 @@ namespace backend.Controllers
         Business.ClienteBusiness buss = new  Business.ClienteBusiness();
         Business.GerenciadorFotos foto = new Business.GerenciadorFotos();
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] // Cliente e Funcionario
         public ActionResult<Models.Response.ClienteResponse> Consultar(int id)
         {
             try
@@ -43,27 +43,21 @@ namespace backend.Controllers
                     new Models.Response.ErrorResponse(ex.Message,400)
                 );
             }
-        }
+        }        
 
-        
-
-        [HttpPost]
+        [HttpPost] // Cliente
         public ActionResult<Models.Response.ClienteResponse> Cadastrar([FromForm] Models.Request.ClienteRequest req)
         {
             try
             {  
                 if(req.Imagem != null)
                 {
-                    Console.WriteLine("POST!!!!");
                     Models.TbCliente client = conv.ParaTabela(req);
-                    Console.WriteLine("Converteu!");
                     client.DsImagem = foto.GerarNovoNome(req.Imagem.FileName);
-                    Console.WriteLine("Vai entrar na business");
+
                     client = buss.Cadastrar(client, req.Email, req.Senha);
-                    Console.WriteLine("Salvar foto");
 
                     foto.salvarFoto(client.DsImagem,req.Imagem);
-                    Console.WriteLine("Imagem Salva");
                     
                     return conv.ParaResponse(client);
                 }
@@ -78,7 +72,7 @@ namespace backend.Controllers
         }
 
 
-        [HttpGet("Foto/{nome}")]
+        [HttpGet("Foto/{nome}")] // Cliente e Funcionario
         public ActionResult BuscarFoto(string nome)
         {
             try
@@ -94,7 +88,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")] // Cliente
         public ActionResult<Models.Response.ClienteResponse> Deletar(int id)
         {
             try

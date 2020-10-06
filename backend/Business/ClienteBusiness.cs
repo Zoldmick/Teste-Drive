@@ -35,10 +35,9 @@ namespace backend.Business
 
             foreach(char letra in client.NmCliente.ToLower())
             {
-                if((int)letra < 97 || (int)letra > 122) throw new ArgumentException("Um nome só pode conter letras");
+                if(((int)letra < 97 || (int)letra > 122 ) && (int)letra != 32) throw new ArgumentException("Um nome só pode conter letras");
             }
-            #warning adicionar função para não contar o espaço
-
+            
             if(db.ConsultarTodos().Any(x => x.NmCliente.ToLower() == client.NmCliente.ToLower())) throw new ArgumentException("Nome ja existe. Tente outro");
 
             if(r(client.NmCliente)) throw new ArgumentException("Colocar nome completo");
@@ -98,12 +97,12 @@ namespace backend.Business
         {
             foreach(char letra in nome.ToLower())
             {
-                if((int)letra < 97 || (int)letra > 122) throw new ArgumentException("Um nome só pode conter letras");
+                if(((int)letra < 97 || (int)letra > 122 ) && (int)letra != 32) throw new ArgumentException("Um nome só pode conter letras");
             }
-            #warning adicionar função para não contar o espaço
-
+            
             // validar cnh
             // validar cpf
+            
             return db.ConsultarTodos(nome);
         }
     }

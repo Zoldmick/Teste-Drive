@@ -13,7 +13,7 @@ namespace backend.Controllers
         Utils.NotificacaoConversor conv = new Utils.NotificacaoConversor();
         Business.NotificacaoBusiness buss = new Business.NotificacaoBusiness();
 
-        [HttpPost]
+        [HttpPost] // Cliente e Funcionario
         public ActionResult<Models.Response.NotificacaoResponse> Cadastrar(Models.Request.NotificacaoRequest req)
         {
             try
@@ -29,7 +29,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("{id}")] // Cliente e Funcionario
         public ActionResult<List<Models.Response.NotificacaoResponse>> Consultar(int id)
         {
             try
@@ -44,7 +44,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")] // Cliente e Funcionario
         public ActionResult<Models.Response.NotificacaoResponse> Deletar(int id)
         {
             try
@@ -59,7 +59,7 @@ namespace backend.Controllers
             }
         }
         
-        [HttpDelete("Lista")]
+        [HttpDelete("Lista")] // Cliente e Funcionario
         public ActionResult<List<Models.Response.NotificacaoResponse>> DeletarLista(List<int> ids)
         {
             try
@@ -75,7 +75,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut] // Cliente e Funcionario
         public void AlterarStatus()
         {
             try

@@ -12,7 +12,7 @@ export default class Login {
     }
 
     async AlterarSenha(id,code,senha){
-        const response = await api.put(`/Login?id=${id}&code=${code}&senha=${senha}`)
+        const response = await api.put(`/Login/${id}?code=${code}&senha=${senha}`)
         return response.data
     }
 

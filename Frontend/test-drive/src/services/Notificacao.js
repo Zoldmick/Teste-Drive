@@ -11,12 +11,12 @@ export default class Notificacao {
     }
 
     async Consultar(id){
-        const response = await api.get(`/Notificacao?id=${id}`)
+        const response = await api.get(`/Notificacao/${id}`)
         return response.data 
     }
 
     async Deletar(id){
-        const response = await api.delete(`/Notificacao?id=${id}`)
+        const response = await api.delete(`/Notificacao/${id}`)
         return response.data
     }
 

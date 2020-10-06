@@ -17,7 +17,7 @@ namespace backend.Controllers
         Business.LoginBusiness buss = new Business.LoginBusiness();
         Utils.LoginConversor conv = new Utils.LoginConversor();
 
-        [HttpPost]
+        [HttpPost] // Cliente e Funcionario
         public ActionResult<Models.Response.LoginResponse> Consultar(Models.Request.LoginRequest req)
         {
             try
@@ -33,7 +33,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpPost("Senha")]
+        [HttpPost("Senha")] // Cliente 
         public ActionResult<int> RedefinirSenha(string email, string to)
         {
             try
@@ -45,6 +45,7 @@ namespace backend.Controllers
                 mail.Body = "";
                 mail.SubjectEncoding = Encoding.GetEncoding("UTF-8");
                 mail.BodyEncoding = Encoding.GetEncoding("UTF-8");
+                
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com",587);
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential("venanciodacostacarloshenrique@gmail.com","Blizard2020");
@@ -61,7 +62,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("{id}")] // Cliente
         public ActionResult<Models.Response.LoginResponse> AlterarSenha(int id, int code, string senha)
         {
             try

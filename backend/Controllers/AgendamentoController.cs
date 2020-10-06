@@ -12,7 +12,7 @@ namespace backend.Controllers
         Business.AgendamentoBusiness buss = new Business.AgendamentoBusiness();
         Utils.AgendamentoConversor conv = new Utils.AgendamentoConversor();
 
-        [HttpGet("Filtro/Status")]
+        [HttpGet("Filtro/Status/{id}")] // Cliente e Funcionario
         public ActionResult<List<Models.Response.AgendamentoResponse>> Consultar(int id, string status)
         {
             try
@@ -26,7 +26,7 @@ namespace backend.Controllers
                 );
             }
         }
-        [HttpGet("Filtro/Cliente")]
+        [HttpGet("Filtro/Cliente")] // Funcionario
         public ActionResult<List<Models.Response.AgendamentoResponse>> ConsultarCliente(string nome)
         {
             try
@@ -41,7 +41,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpPut("Status")]
+        [HttpPut("Status/{id}")] // Cliente e Funcionario
         public ActionResult<Models.Response.AgendamentoResponse> AlterarStatus(int id, string status)
         {
             try
@@ -55,7 +55,7 @@ namespace backend.Controllers
                 );
             }
         }
-        [HttpPost] // Avaliação e Feddback
+        [HttpPost("AFeed/{id}")] // Avaliação e Feddback
         public ActionResult<Models.Response.AgendamentoResponse> InserirFeedAva(int id, int avaliacao,string feedback)
         {
             try
@@ -70,7 +70,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost] // Cliente e Funcionario
         public ActionResult<Models.Response.AgendamentoResponse> Cadastrar(Models.Request.AgendamentoRequest req)
         {
             try
@@ -86,7 +86,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet("Horarios")]
+        [HttpGet("Horarios")] // Cliente e Funcionario
         public ActionResult<List<DateTime>> ConsultarHorarios(DateTime dia)
         {
             try
@@ -101,7 +101,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")] // Cliente e Funcionario
         public ActionResult<Models.Response.AgendamentoResponse> Deletar(int id)
         {
             try
@@ -116,7 +116,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet("Filtro/Mes")]
+        [HttpGet("Filtro/Mes/{id}")] // Cliente e Funcionario
         public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorMes(int id,int mes)
         {
             try
@@ -131,7 +131,8 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet("Filtro/Semana")]
+        [HttpGet("Filtro/Semana")] // Cliente e Funcionario
+        // Ainda aberto para discussão
         public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorSemana(int id,DateTime data)
         {
             try

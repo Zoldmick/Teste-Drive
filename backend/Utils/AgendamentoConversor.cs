@@ -12,13 +12,15 @@ namespace backend.Utils
                 Id = tb.IdAgendamento,
                 Feedback = tb.DsFeedback,
                 Final = tb.DsRotaFinal,
-                Inicial = tb.DsRotaInicial,
+                Inicio = tb.DsRotaInicial,
                 Status = tb.DsStatus,
                 Data = tb.DtAgendamento,
-                HoraFinal = tb.DtFinal,
+                HoraFinal = tb.DtFinal.ToLongTimeString(),
                 Avaliacao = tb.NrAvaliacao,
                 Cliente = tb.IdCliente,
-                Veiculo = tb.IdVeiculo
+                Veiculo = tb.IdVeiculo,
+                Acompanhante = tb.DsAcompanhante,
+                Funcionario =  "José Arignaldo dos santos"
             };
         }
         

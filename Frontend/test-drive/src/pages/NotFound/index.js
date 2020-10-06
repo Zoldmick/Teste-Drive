@@ -4,7 +4,7 @@ import {PageDefault,InfoWrapper,Mensagem,ImgContainer,VidContainer} from './styl
 
 
 
-function NotFaund(){
+function NotFound(){
     return(
         <PageDefault>
             <InfoWrapper>
