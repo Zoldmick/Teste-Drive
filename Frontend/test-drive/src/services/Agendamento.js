@@ -42,7 +42,7 @@ export default class Agendamento {
     }
 
     async ConsultarPorSemana(id,data){
-        const response = await api.get(`/Agendamento/|${id}?data=${data}`)
+        const response = await api.get(`/Agendamento/${id}?data=${data}`)
         return response.data
     }
 }
