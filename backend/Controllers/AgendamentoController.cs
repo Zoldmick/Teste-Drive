@@ -55,8 +55,8 @@ namespace backend.Controllers
                 );
             }
         }
-        
-        [HttpPost("AFeed/{id}")] // Avaliação e Feddback -- Cliente
+
+        [HttpPut("AFeed/{id}")] // Avaliação e Feddback -- Cliente
         public ActionResult<Models.Response.AgendamentoResponse> InserirFeedAva(int id, int avaliacao,string feedback)
         {
             try
@@ -132,7 +132,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet("Filtro/Semana")] // Cliente e Funcionario
+        [HttpGet("Filtro/Semana/{id}")] // Cliente e Funcionario
         // Ainda aberto para discussão
         public ActionResult<List<Models.Response.AgendamentoResponse>> FiltrarPorSemana(int id,DateTime data)
         {

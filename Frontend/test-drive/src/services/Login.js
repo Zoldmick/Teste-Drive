@@ -20,4 +20,24 @@ export default class Login {
         const response = await api.post(`/Login/Senha?email=${email}&to=${to}`)
         return response.data
     }
+
+    async CadastrarFunc(id,req){ // adm
+        const response = await api.post(`/Login/Funcionario/${id}`,req)
+        return response.data
+    }
+
+    async ConsultarFuncs(id){ // adm
+        const response = await api.post(`/Login/Funcionario/Consulta/${id}`)
+        return response.data
+    }
+
+    async DeletarFunc(id,idFunc){ // adm
+        const response = await api.delete(`/Login/Funcionario/Deletar/${id}?idFunc=${idFunc}`)
+        return response
+    }
+
+    async AlterarFunc(id,idFunc,req){ // adm
+        const response = await api.put(`/Login/Funcionario/Alterar/${id}?idFunc=${idFunc}`,req)
+        return response
+    }
 }

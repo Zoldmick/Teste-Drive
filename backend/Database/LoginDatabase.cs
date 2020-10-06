@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace backend.Database
@@ -10,6 +11,29 @@ namespace backend.Database
         {
            return ctx.TbLogin.FirstOrDefault(x => x.DsEmail == tb.DsEmail &&
                                                   x.DsSenha == tb.DsSenha);
+        }
+
+        public Models.TbLogin ConsultarID (int id)
+        {
+            return ctx.TbLogin.FirstOrDefault(x => x.IdLogin == id);
+        }
+
+        public void Cadastrar(Models.TbLogin tb)
+        {
+            ctx.TbLogin.Add(tb);
+            ctx.SaveChanges();
+        }
+
+        public Models.TbLogin DeletarFuncionario(Models.TbLogin tb)
+        {
+            ctx.TbLogin.Remove(tb);
+            ctx.SaveChanges();
+            return tb;
+        }
+
+        public List<Models.TbLogin> ConsultarFunc()
+        {
+            return ctx.TbLogin.Where(x => x.NrNivel > 0).ToList();
         }
         
         public int? ConsultarCodigoSenha(int id)
@@ -42,5 +66,13 @@ namespace backend.Database
             return login;
         }
 
+        public Models.TbLogin AlterarFuncionario(Models.TbLogin b, Models.TbLogin a)
+        {
+            b.DsEmail = a.DsEmail; 
+            b.DsSenha = a.DsSenha;
+            ctx.SaveChanges();
+
+            return b;
+        }
     }
 }

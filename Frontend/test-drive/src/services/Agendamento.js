@@ -7,7 +7,7 @@ const api = axios.create({
 export default class Agendamento {
 
     async ConsultarPorStatus(id,status){
-        const response = await api.post(`/Agendamento/Status/${id}?status=${status}`)
+        const response = await api.post(`/Agendamento/Filtro/Status/${id}?status=${status}`)
         return response.data
     }
 
@@ -27,7 +27,7 @@ export default class Agendamento {
     }
 
     async ConsultaHorarios(dia){
-        const response = await api.get(`/Agendamento?dia=${dia}`)
+        const response = await api.get(`/Agendamento/Horarios?dia=${dia}`)
         return response.data        
     }
 
@@ -37,12 +37,14 @@ export default class Agendamento {
     }
 
     async ConsultarPorMes(id,mes){
-        const response = await api.get(`/Agendamento/${id}?mes=${mes}`)
+        const response = await api.get(`/Agendamento/Filtro/Mes/${id}?mes=${mes}`)
         return response.data
     }
 
     async ConsultarPorSemana(id,data){
-        const response = await api.get(`/Agendamento/${id}?data=${data}`)
+        const response = await api.get(`/Agendamento/Filtro/Semana/${id}?data=${data}`)
         return response.data
     }
+
+
 }

@@ -25,6 +25,16 @@ export default class Notificacao {
         return response.data
     }
 
+    async ConsultarPorNome(nome){ // funcionario
+        const response = await api.get(`/Notificacao/Filtro/${nome}`)
+        return response.data
+    }
+
+    async ConsultarTodos(){ // funcionario
+        const response = await api.get(`/Notificacao/Todos`)
+        return response.data
+    }
+
     async AlterarStatus(){
         const response = await api.put(`/Notificacao`)
         return response.data

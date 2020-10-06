@@ -37,6 +37,11 @@ export default class Cliente {
         return response.data
     }
 
+    async ConsultarClientes(nome){ // funcionario
+        const response = await api.get(`/Cliente/Clientes?nome=${nome}`)
+        return response;
+    }
+
     async Deletar(id){
         const response = await api.delete(`/Cliente/${id}`)
         return response.data

@@ -76,6 +76,69 @@ namespace backend.Controllers
                 );
             }
         }
+
+        [HttpPost("Funcionario/{idADM}")] // Adm
+        public ActionResult CadastrarFuncionario(int idADM, Models.Request.LoginRequest req)
+        {
+            try
+            {
+                Models.TbLogin login = conv.ParaTabelaFunc(idADM,req);
+                return new OkResult();
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
+
+        [HttpPost("Funcionario/Consultar/{idADM}")] // Adm
+        public ActionResult<List<Models.Response.LoginResponse>> ConsultarFuncionario(int idADM)
+        {
+            try
+            {
+                return conv.ParaListaResponse(buss.ConsultarFuncionario(idADM));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
+
+        [HttpDelete("Funcionario/Deletar/{idADM}")] // Adm
+        public ActionResult<Models.Response.LoginResponse> DeletarFuncionario(int idADM, int idFunc)
+        {
+            try
+            {
+                return conv.ParaResponse(buss.DeletarFuncionario(idADM,idFunc));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
+
+        [HttpPut("Funcionario/Alterar/{idADM}")] // Adm
+
+        public ActionResult<Models.Response.LoginResponse> AlterarFuncionario(int idADM, int idFunc, Models.Request.LoginRequest tb)
+        {
+            try
+            {
+                Models.TbLogin login = conv.ParaTabelaFunc(idADM,tb);
+                return conv.ParaResponse(buss.AlterarFuncionario(idFunc,login));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
         
         [HttpGet("ping")]
         public string ping()
