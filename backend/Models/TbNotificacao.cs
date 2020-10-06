@@ -21,6 +21,8 @@ namespace backend.Models
         [Required]
         [Column("ds_status", TypeName = "varchar(255)")]
         public string DsStatus { get; set; }
+        [Column("bt_disponivel")]
+        public bool? BtDisponivel { get; set; }
 
         [ForeignKey(nameof(IdLogin))]
         [InverseProperty(nameof(TbLogin.TbNotificacao))]

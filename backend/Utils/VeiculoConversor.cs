@@ -6,6 +6,32 @@ namespace backend.Utils
 {
     public class VeiculoConversor
     {
+
+        public Models.TbVeiculo ParaTabela(Models.Request.VeiculoRequest req)
+        {
+            string adap = string.Empty;
+
+            for(int i = 0; i < req.Adaptacao.Length; i++)
+            {
+                if(i == req.Adaptacao.Length - 1)
+                    adap += $"{req.Adaptacao[i]}";
+ 
+                else adap += $"{req.Adaptacao[i]},";
+            }
+
+            return new Models.TbVeiculo {
+                DsAdaptacao =  adap,
+                DtAnoModelo = req.Ano,
+                DsCombustivel = req.Combustivel,
+                DsCor = req.Cor,
+                DsMarca = req.Marca,
+                DsModelo = req.Modelo,
+                BtCarroPcd = req.Pcd,
+                DsPlaca = req.Placa.ToUpper(),
+                VlValorVeiculo = req.Valor,
+                BtDisponivel = true,  
+            };
+        }
         public Models.Response.VeiculoResponse ParaResponse(Models.TbVeiculo tb)
         {
             Models.Response.VeiculoResponse ret = new Models.Response.VeiculoResponse {

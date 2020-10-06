@@ -86,7 +86,7 @@ namespace backend.Business
                     || email.ToLower().Contains("@outlook")
                     || email.ToLower().Contains("@hotmail"))) throw new ArgumentException("Email inválido");
             
-            Func<string, bool> senhaForte = ValidarSenha.SenhaForte();
+            Func<string, bool> senhaForte = OutrasValidacoes.SenhaForte();
 
             if(!(senhaForte(senha) && senha.Length >= 8)) throw new ArgumentException("Senha fraca. Tente outra senha");
 
@@ -102,7 +102,7 @@ namespace backend.Business
             
             // validar cnh
             // validar cpf
-            
+
             return db.ConsultarTodos(nome);
         }
     }

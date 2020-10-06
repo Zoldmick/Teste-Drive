@@ -55,7 +55,8 @@ namespace backend.Controllers
                 );
             }
         }
-        [HttpPost("AFeed/{id}")] // Avaliação e Feddback
+        
+        [HttpPost("AFeed/{id}")] // Avaliação e Feddback -- Cliente
         public ActionResult<Models.Response.AgendamentoResponse> InserirFeedAva(int id, int avaliacao,string feedback)
         {
             try

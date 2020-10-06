@@ -12,7 +12,8 @@ namespace backend.Utils
                 DsMensagem = req.mensagem,
                 IdLogin = req.login,
                 DtEnvio = DateTime.Now,
-                DsStatus = "Não lido"
+                DsStatus = "Não lido",
+                BtDisponivel = true
             };
         }
 

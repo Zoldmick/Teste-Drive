@@ -2,7 +2,7 @@ using System;
 
 namespace backend.Business
 {
-    public static class ValidarSenha
+    public static class OutrasValidacoes
     {
         public static Func<string,bool> SenhaForte()
         {
@@ -18,6 +18,18 @@ namespace backend.Business
                 };
                 
             return senhaForte;
+        }
+
+        public static bool ContainsEspeciais(string v)
+        {
+            bool ret = false;
+            foreach(char letra in v)
+            {
+                int conv = (int)(letra.ToString().ToLower())[0];
+                if(conv < 48 || conv > 122) ret = true;
+            }
+
+            return ret;
         }
     }
 }

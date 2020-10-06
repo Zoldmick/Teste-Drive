@@ -45,6 +45,26 @@ namespace backend.Business
             return noexcluir;
         }
 
+        public List<Models.TbNotificacao> ConsultarPorNome(string nome)
+        {
+            if(string.IsNullOrEmpty(nome)) throw new ArgumentException("Nome está vazio");
+
+            if(db.ConsultarCliente(nome) ==  null) throw new ArgumentException("Nome não existe");
+
+            List<Models.TbNotificacao> ret =  db.ConsultarPorNome(nome);
+            if(ret == null) throw new ArgumentException("Nenhuma notificação encontrada");
+
+            return ret;
+        }
+
+        public List<Models.TbNotificacao> ConsultarTodos()
+        {
+            List<Models.TbNotificacao> ret = db.ConsultarTodos();
+            if(ret == null) throw new ArgumentException("Nenhum registro encontrado");
+
+            return ret;
+        }
+
         public void AlterarStatus()
         {
             db.AlterarStatus();

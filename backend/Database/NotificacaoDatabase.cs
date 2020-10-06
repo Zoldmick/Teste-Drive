@@ -27,12 +27,29 @@ namespace backend.Database
 
         public List<Models.TbNotificacao> Consultar(int id)
         {
-            return ctx.TbNotificacao.Where(x => x.IdLogin == id).ToList();
+            return ctx.TbNotificacao.Where(x => x.IdLogin == id && x.BtDisponivel == true).ToList();
+        }
+
+        public List<Models.TbNotificacao> ConsultarPorNome(string nome)
+        {
+            return ctx.TbNotificacao.Where(x => x.IdLoginNavigation.TbCliente.FirstOrDefault(x => x.NmCliente == nome) != null)
+                                    .OrderBy(x => x.DtEnvio)
+                                    .ToList();
+        }
+
+        public Models.TbCliente ConsultarCliente(string nome)
+        {
+            return ctx.TbCliente.FirstOrDefault(x => x.NmCliente == nome);
+        }
+
+        public List<Models.TbNotificacao> ConsultarTodos()
+        {
+            return ctx.TbNotificacao.OrderBy(x => x.DtEnvio).ToList();
         }
 
         public Models.TbNotificacao Deletar(Models.TbNotificacao tb)
         {
-            ctx.TbNotificacao.Remove(tb);
+            tb.BtDisponivel = false;
             ctx.SaveChanges();
             return tb;
         }

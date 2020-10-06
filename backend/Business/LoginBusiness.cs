@@ -29,7 +29,7 @@ namespace backend.Business
         {
             if(!(db.ConsultarCodigoSenha(id) == cod)) throw new ArgumentException("Codigo de alteração incorreto");
 
-            Func<string, bool> senhaForte = ValidarSenha.SenhaForte();
+            Func<string, bool> senhaForte = OutrasValidacoes.SenhaForte();
 
             if(senhaForte(senha)) throw new ArgumentException("Senha fraca. Tente outra senha");
 

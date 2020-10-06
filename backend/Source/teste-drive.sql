@@ -16,6 +16,7 @@ id_login 			int not null,
 ds_mensagem			varchar(255) not null,
 dt_envio 			datetime not null,
 ds_status 			varchar(255) not null,
+bt_disponivel		bool,
 FOREIGN KEY (id_login) REFERENCES tb_login(id_login) on delete cascade
 );
 

@@ -56,7 +56,6 @@ namespace backend.Controllers
                     client.DsImagem = foto.GerarNovoNome(req.Imagem.FileName);
 
                     client = buss.Cadastrar(client, req.Email, req.Senha);
-
                     foto.salvarFoto(client.DsImagem,req.Imagem);
                     
                     return conv.ParaResponse(client);

@@ -29,7 +29,7 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet("{id}")] // Cliente e Funcionario
+        [HttpGet("{id}")] // Cliente 
         public ActionResult<List<Models.Response.NotificacaoResponse>> Consultar(int id)
         {
             try
@@ -44,7 +44,39 @@ namespace backend.Controllers
             }
         }
 
-        [HttpDelete("{id}")] // Cliente e Funcionario
+        [HttpGet("Filtro/{Nome}")] // Funcionario
+
+        public ActionResult<List<Models.Response.NotificacaoResponse>> ConsultarPorNome(string nome)
+        {
+            try
+            {
+                return conv.ParaListaResponse(buss.ConsultarPorNome(nome));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,400)
+                );
+            }
+        }
+
+        [HttpGet("Todos")] // Funcionario
+
+        public ActionResult<List<Models.Response.NotificacaoResponse>> ConsultarTodos()
+        {
+            try
+            {
+                return conv.ParaListaResponse(buss.ConsultarTodos());
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,500)
+                );
+            }
+        }
+
+        [HttpDelete("{id}")] // Cliente
         public ActionResult<Models.Response.NotificacaoResponse> Deletar(int id)
         {
             try
@@ -59,7 +91,7 @@ namespace backend.Controllers
             }
         }
         
-        [HttpDelete("Lista")] // Cliente e Funcionario
+        [HttpDelete("Lista")] // Cliente 
         public ActionResult<List<Models.Response.NotificacaoResponse>> DeletarLista(List<int> ids)
         {
             try
