@@ -15,7 +15,7 @@ namespace backend.Business
             return login;
         }    
 
-        public int[] RedefinirSenha(string email,string to)
+        public int RedefinirSenha(string email,string to)
         {
             if(!(to.ToLower().Contains(".com") && to.Contains("@"))) throw new ArgumentException("Email inválido");
 

@@ -34,13 +34,13 @@ namespace backend.Controllers
         }
 
         [HttpPost("Senha")] // Cliente 
-        public ActionResult<int> RedefinirSenha(string email, string to)
+        public ActionResult RedefinirSenha(string email, string to)
         {
             try
             {
-                int[] v = buss.RedefinirSenha(email,to);
+                int v = buss.RedefinirSenha(email,to);
                 MailMessage mail = new MailMessage("venanciodacostacarloshenrique@gmail.com",email);
-                mail.Subject = $"{v[0]} é seu codigo de verificação do FlagStaff Car";
+                mail.Subject = $"{v} é seu codigo de verificação do FlagStaff Car";
                 mail.IsBodyHtml = true;
                 mail.Body = "";
                 mail.SubjectEncoding = Encoding.GetEncoding("UTF-8");
@@ -52,7 +52,8 @@ namespace backend.Controllers
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
 
-                return v[1];
+                return new OkResult();
+
             }
             catch (Exception ex)
             {
