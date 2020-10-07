@@ -14,7 +14,7 @@ function Routes () {
             <Switch>
                                     /* Global */
                 <Route path = '/' component = {Login} exact />
-                <Route path = '/home' component = {HomeCliente} exact />
+                <Route path = 'cliente/home' component = {HomeCliente} exact />
 
                                     /* Cliente */
                 <Route path = '/register' component = {RegisterCliente} exact  />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import {FormField} from '../../components/FormField'
 import {ButtonMedio, ButtonGrande} from '../../components/Button'
 import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, ContainerButton, 
@@ -7,7 +7,10 @@ import { GrView } from 'react-icons/gr'
 import { IconContext } from "react-icons";
 import {Link} from 'react-router-dom'
 import ApiLogin from '../../services/Login'
+import {Toastcontainer,toast} from 'react-toastify'
+
 const apil = new ApiLogin()
+
 
 function ViewPassword(){
    let tipo =  document.getElementsByName("senha")[0];
@@ -19,10 +22,34 @@ function ViewPassword(){
 };
 
 
-
-
 function Login(){
 
+    const [email,setEmail] = useState('');
+    const [senha,setSenha] = useState('');
+
+    async function Logar(){ 
+        try{
+            const req = await apil.Consultar({Email = email,Senha = senha});
+        }catch(e){
+            toast.info(e.response.data.error);
+        }
+
+        if(req.NivelLogin == 0){
+            localstorage.setItem('id',req.id);
+            window.location.replace('http://localhost:3000/cliente/home');
+        }
+        else if (req.NivelLogin == 1){
+            localstorage.setItem('id',req.id);
+            window.location.replace('http://localhost:3000/cliente/funcionario');
+        }
+        else if (req.NivelLogin == 3){
+            localstorage.setItem('id',req.id);
+            window.location.replace('http://localhost:3000/cliente/gerente');
+        }
+        
+    }
+
+        
     return(
 
         <PageDefault>
@@ -66,6 +93,8 @@ function Login(){
                             label = 'E-mail'
                             type = 'text'
                             name = 'e-mail'
+                            value = {email}
+                            onChange = {(e) => setEmail(e.target.value)}
                         />
 
                         <Custom>
@@ -74,7 +103,8 @@ function Login(){
                                 label = 'Senha'
                                 type = 'password'
                                 name = 'senha'
-                            
+                                value = {senha}
+                                onChange ={(e) => setSenha(e.target.value)}
                             />
 
                             <IconContext.Provider value={{ color: "red", size: "20px", margin: "0px" }}>
@@ -90,7 +120,7 @@ function Login(){
                         
                        <ContainerButtonOne>
 
-                            <ButtonMedio 
+                            <ButtonMedio onCLick = {Logar}
                                 children = 'Entrar' 
                             />
                             
