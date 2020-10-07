@@ -25,8 +25,6 @@ function HomeCliente() {
     const [email,setEmail] = useState()
     const [senha,setSenha] = useState()
 
-    
-
     return(
        <PageDefault>
             <Menu />
