@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import Menu from '../../../components/Header'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
@@ -22,7 +22,10 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 
 function HomeCliente() {
 
-        
+    const [email,setEmail] = useState()
+    const [senha,setSenha] = useState()
+
+    
 
     return(
        <PageDefault>
