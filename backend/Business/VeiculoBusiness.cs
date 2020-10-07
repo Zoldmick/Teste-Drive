@@ -7,10 +7,10 @@ namespace backend.Business
     {
         Database.VeiculoDatabase db = new Database.VeiculoDatabase();
 
-        public List<Models.TbVeiculo> Consultar(bool pcd)
+        public List<Models.TbVeiculo> Consultar(int id)
         {
-           List<Models.TbVeiculo> ret = db.Consultar(pcd);
-           Console.WriteLine($"{ret[0]}");
+           bool deficiente = db.ConsultarCliente(id).BtDeficiente;
+           List<Models.TbVeiculo> ret = db.Consultar(deficiente);
            if(ret == null) throw new ArgumentException("Nenhum carro encontrado");
            return ret;
         }

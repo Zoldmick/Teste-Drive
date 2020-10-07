@@ -30,7 +30,7 @@ export default class Veiculo {
     }
 
     BuscarFoto(nome){
-        const response = await api.get(`/Veiculo/Foto/${nome}`)
+        const response =  api.get(`/Veiculo/Foto/${nome}`)
         return response.data
     }
     

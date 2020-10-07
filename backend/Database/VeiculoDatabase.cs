@@ -19,6 +19,11 @@ namespace backend.Database
             return ctx.TbVeiculo.FirstOrDefault(x => x.IdVeiculo == id);
         }
 
+        public Models.TbCliente ConsultarCliente(int id)
+        {
+            return ctx.TbCliente.FirstOrDefault(x => x.IdLogin == id);
+        }
+
         public Models.TbVeiculo Deletar(Models.TbVeiculo tb)
         {
             ctx.TbVeiculo.Remove(tb);

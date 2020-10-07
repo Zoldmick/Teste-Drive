@@ -21,6 +21,9 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 
 
 function HomeCliente() {
+
+        
+
     return(
        <PageDefault>
             <Menu />

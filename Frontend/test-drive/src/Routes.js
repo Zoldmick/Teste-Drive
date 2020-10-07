@@ -6,7 +6,7 @@ import Register from './pages/Cliente/Cadastro_Agendamento'
 import RegisterCliente from './pages/Cliente/Cadastro_Cliente'
 import ResetSenha from './pages/Cliente/Reset_Senha'
 import Details_Schedule from './pages/Cliente/Detalhes_Agendamento'
-//import NotFaund from './pages/NotFaund'
+import NotFound from './pages/NotFaund'
 
 function Routes () {
     return(
@@ -18,12 +18,10 @@ function Routes () {
 
                                     /* Cliente */
                 <Route path = '/register' component = {RegisterCliente} exact  />
-                <Route path = '/cliente/agendamento' comp
-                onent = {Register} exact /> 
+                <Route path = '/cliente/agendamento' component = {Register} exact /> 
                 <Route path = '/cliente/detalhes-do-agendamento' component = {Details_Schedule} exact/>
                 <Route path = '/reset' component = {ResetSenha} exact /> 
-                                    
-                
+                <Route path = '*' component = {NotFound} />                                    
             
             </Switch>
         </BrowserRouter>

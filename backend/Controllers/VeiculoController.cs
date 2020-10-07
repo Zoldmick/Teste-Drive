@@ -17,12 +17,12 @@ namespace backend.Controllers
         // Adicionar rota de inserir so para os funcionarios
         // Rota de alterar e deletar so para o funcionario
 
-        [HttpGet] // Cliente e Funcionario
-        public ActionResult<List<Models.Response.VeiculoResponse>> Consultar(bool pcd)
+        [HttpGet] // Cliente 
+        public ActionResult<List<Models.Response.VeiculoResponse>> Consultar(int id)
         {
             try
             {
-                return  conv.ParaListaResponse(buss.Consultar(pcd));
+                return  conv.ParaListaResponse(buss.Consultar(id));
             }
             catch (Exception ex)
             {
