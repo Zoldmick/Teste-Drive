@@ -4,10 +4,10 @@ import {PageDefault,InfoWrapper,Mensagem,ImgContainer,VidContainer} from './styl
 
 
 
-function NotFound(){
+export default function NotFound(){
     return(
         <PageDefault>
-            <InfoWrapper>
+            {/* <InfoWrapper>
                 <Mensagem>
 
                 </Mensagem>
@@ -17,7 +17,7 @@ function NotFound(){
             </InfoWrapper>
             <VidContainer>
                 
-            </VidContainer>
+            </VidContainer> */}
         </PageDefault>
     );
 }

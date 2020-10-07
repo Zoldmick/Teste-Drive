@@ -6,7 +6,7 @@ import Register from './pages/Cliente/Cadastro_Agendamento'
 import RegisterCliente from './pages/Cliente/Cadastro_Cliente'
 import ResetSenha from './pages/Cliente/Reset_Senha'
 import Details_Schedule from './pages/Cliente/Detalhes_Agendamento'
-import NotFound from './pages/NotFaund'
+import NotFound from './pages/NotFound'
 
 function Routes () {
     return(

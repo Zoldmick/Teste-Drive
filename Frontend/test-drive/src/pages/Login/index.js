@@ -6,6 +6,8 @@ import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, Containe
 import { GrView } from 'react-icons/gr'
 import { IconContext } from "react-icons";
 import {Link} from 'react-router-dom'
+import ApiLogin from '../../services/Login'
+const apil = new ApiLogin()
 
 function ViewPassword(){
    let tipo =  document.getElementsByName("senha")[0];
