@@ -19,7 +19,6 @@ import { CgAdd } from "react-icons/cg";
 import { IoIosNotificationsOutline } from "react-icons/io";
 
 
-
 function HomeCliente() {
 
     const [email,setEmail] = useState()

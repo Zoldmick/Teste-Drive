@@ -36,6 +36,11 @@ namespace backend.Database
             return ctx.TbCliente.FirstOrDefault(x => x.IdLogin == id);
         }
 
+        public Models.TbLogin ConsultarLogin(string email)
+        {
+            return ctx.TbLogin.FirstOrDefault(x => x.DsEmail == email);
+        } 
+
         public Models.TbCliente Deletar(Models.TbCliente tb)
         {
             ctx.TbCliente.Remove(tb);

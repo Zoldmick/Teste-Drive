@@ -5,7 +5,7 @@ import Footer from '../../../components/Fotter'
 import { FaCar as CarIcon} from 'react-icons/fa';
 import {PageDefault, ContainerImg, InfoRegister, InfoCar, ContainerButton, ContainerForm, Span, H1, Select,Option} from './styled'
 import Veiculo from '../../../services/Veiculo'
-//import { toastContainer, toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 const ApiCar = new Veiculo();
 

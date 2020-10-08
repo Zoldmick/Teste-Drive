@@ -7,7 +7,7 @@ import { GrView } from 'react-icons/gr'
 import { IconContext } from "react-icons";
 import {Link} from 'react-router-dom'
 import ApiLogin from '../../services/Login'
-import {Toastcontainer,toast} from 'react-toastify'
+import {ToastContainer,toast} from 'react-toastify'
 
 const apil = new ApiLogin()
 
@@ -26,15 +26,23 @@ function Login(){
 
     const [email,setEmail] = useState('');
     const [senha,setSenha] = useState('');
+    const [client,setClient] = useState()
 
     async function Logar(){ 
         try{
-            const req = await apil.Consultar({Email: email,Senha: senha});
+            const req = {
+                Email: email,
+                Senha: senha
+            }
+            console.log(req)
+            const resp = await apil.Consultar(req);
+            setClient(resp)
+            return resp
+            
         }catch(e){
             toast.info(e.response.data.error);
         }
-
-
+        console.log(client)
         /*if(req.NivelLogin == 0){
             localstorage.setItem('id',req.id);
             window.location.replace('http://localhost:3000/cliente/home');

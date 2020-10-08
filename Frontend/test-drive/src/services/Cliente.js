@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL:'localhost:5000'
+    baseURL:'http://localhost:5000'
 })
 
 export default class Cliente {
@@ -13,10 +13,12 @@ export default class Cliente {
 
     async Cadastrar({Email, Senha, Nome, Cpf, Nascimento, Endereco, Telefone, Celular, Residencia, Deficiencia, Cnh, Imagem}){
         const f = new FormData()
+        console.log("Bem-vindo cliente")
         f.append('Email',Email) 
         f.append('Senha',Senha) 
         f.append('Nome',Nome) 
         f.append('Nascimento',Nascimento)
+        f.append('Cpf',Cpf)
         f.append('Endereco',Endereco)
         f.append('Telefone',Telefone) // string
         f.append('Celular',Celular) // string
@@ -33,7 +35,7 @@ export default class Cliente {
     }
 
     BuscarFoto(nome){
-        const response = await api.get(`/Cliente/Foto/${nome}`)
+        const response =  api.get(`/Cliente/Foto/${nome}`)
         return response.data
     }
 

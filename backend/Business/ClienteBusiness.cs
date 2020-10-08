@@ -16,7 +16,6 @@ namespace backend.Business
 
        public Models.TbCliente Cadastrar(Models.TbCliente client, string email, string senha)
         {
-            Console.WriteLine($"{email}{senha}{client.DsImagem}");
             if(string.IsNullOrEmpty(client.DsEndereco)) throw new ArgumentException("Adicione um endereço");
 
            Models.teste_driveContext ctx = new Models.teste_driveContext();
@@ -74,8 +73,8 @@ namespace backend.Business
         {
             if(string.IsNullOrEmpty(email)) throw new ArgumentException("Email está vazio");
             Console.WriteLine("Validar email");
-             
-            if(db.ConsultarTodos().FirstOrDefault(x => x.IdLoginNavigation.DsEmail == email) != null) throw new ArgumentException("Email já existe. Tente outro");
+
+            if(db.ConsultarLogin(email) != null) throw new ArgumentException("Email já existe. Tente outro");
             Console.WriteLine("Termino de Validar email");
 
             if(string.IsNullOrEmpty(senha)) throw new ArgumentException("Senha está vazio"); 
@@ -87,7 +86,7 @@ namespace backend.Business
                     || email.ToLower().Contains("@hotmail"))) throw new ArgumentException("Email inválido");
             
             Func<string, bool> senhaForte = OutrasValidacoes.SenhaForte();
-
+            Console.WriteLine(senhaForte(senha));
             if(!(senhaForte(senha) && senha.Length >= 8)) throw new ArgumentException("Senha fraca. Tente outra senha");
 
             Console.WriteLine("Validou email e senha");
