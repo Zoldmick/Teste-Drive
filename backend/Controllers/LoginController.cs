@@ -53,7 +53,6 @@ namespace backend.Controllers
                 smtp.Send(mail);
 
                 return new OkResult();
-
             }
             catch (Exception ex)
             {
