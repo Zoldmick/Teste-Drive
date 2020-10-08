@@ -21,7 +21,7 @@ export const Button = styled.button`
     }
 `; 
 
-const ButtonG = styled.button`
+export const ButtonG = styled.button`
     height:37px;
     width:217px;
 
@@ -53,7 +53,7 @@ export function ButtonMedio ({ children, onClick, to, as }){
 export function ButtonGrande ({ children, onClick, to, as }){
 
     return(
-        <ButtonG as={as} to ={to} onclick = {onClick} >
+        <ButtonG as={as} to ={to} onClick = {onClick} >
             {children}
         </ButtonG>
     );

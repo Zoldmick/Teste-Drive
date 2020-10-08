@@ -16,9 +16,11 @@ function Register (){
     
     const ConsultCar =  async () => {
         try{
-            const consult = await ApiCar.Consultar(pcd);
+            if(localStorage.getItem('id') == null) window.location.replace("http://localhost:3000/")
+            const consult = await ApiCar.Consultar(localStorage.getItem('id'));
             setReq([...consult])
         }catch(e) {
+            console.log(e.response.data)
         }  
     }
 
@@ -26,19 +28,13 @@ function Register (){
         ConsultCar()
     }, [])
     
-
-
-
-    
-
     return(
         <PageDefault>
            
             <H1>Agendamento</H1>
             <ContainerImg>
                 <div>
-                    <img src = ''  alt= "imagem do Carro" height='150' width='200'/>
-
+                    <img src = '#'  alt= "imagem do Carro" height='150' width='200'/>
                 </div>
             </ContainerImg>
 

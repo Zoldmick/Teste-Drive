@@ -17,7 +17,7 @@ namespace backend.Controllers
         // Adicionar rota de inserir so para os funcionarios
         // Rota de alterar e deletar so para o funcionario
 
-        [HttpGet] // Cliente 
+        [HttpGet("{id}")] // Cliente 
         public ActionResult<List<Models.Response.VeiculoResponse>> Consultar(int id)
         {
             try

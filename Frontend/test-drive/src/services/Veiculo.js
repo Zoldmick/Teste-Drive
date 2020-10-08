@@ -6,8 +6,8 @@ const api = axios.create({
 
 export default class Veiculo {
     
-    async Consultar(pcd){
-        const response = await api.get(`/Veiculo?pcd=${pcd}`)
+    async Consultar(id){
+        const response = await api.get(`/Veiculo/${id}`)
         return response.data 
     }
 

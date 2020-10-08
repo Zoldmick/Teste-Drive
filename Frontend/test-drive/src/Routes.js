@@ -30,11 +30,10 @@ function Routes () {
                 
                                     /* Funcionario */
                 <Route path = '/funcionario/home'                component = {HomeFuncionario} exact      /> 
-                <Route path = '/funcionario/agendamento'          component = {RegisterAgendamento} exact  />                    
+                <Route path = '/funcionario/agendamento'         component = {RegisterAgendamento} exact  />                    
                
                
                 <Route path = '*'                                component = {NotFound} />                                    
-            
             </Switch>
         </BrowserRouter>
     );

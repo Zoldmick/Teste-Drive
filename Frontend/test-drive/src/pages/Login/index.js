@@ -1,8 +1,8 @@
-import React, {useState,useEffect} from 'react'
+import React, { useState } from 'react'
 import {FormField} from '../../components/FormField'
-import {ButtonMedio, ButtonGrande} from '../../components/Button'
-import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin, ContainerButton, 
-    ContainerButtonOne, Span, H1,Custom,Button } from './style'
+import {ButtonMedio, ButtonGrande, Button as But } from '../../components/Button'
+import { PageDefault, ConteudoWrapper, InfosWrapper, Infos , InfoLogin,
+ContainerButton, ContainerButtonOne, Span, H1,Custom,Button } from './style'
 import { GrView } from 'react-icons/gr'
 import { IconContext } from "react-icons";
 import {Link} from 'react-router-dom'
@@ -26,36 +26,30 @@ function Login(){
 
     const [email,setEmail] = useState('');
     const [senha,setSenha] = useState('');
-    const [client,setClient] = useState()
 
     async function Logar(){ 
         try{
-            const req = {
-                Email: email,
-                Senha: senha
-            }
-            console.log(req)
-            const resp = await apil.Consultar(req);
-            setClient(resp)
-            return resp
-            
+                const req = {
+                    Email: email,
+                    Senha: senha
+                }
+
+                const resp = await apil.Consultar(req)
+                console.log(resp)
+                localStorage.setItem('id',resp.id)
+                if(resp.nivelLogin == 0){
+                    window.location.replace('http://localhost:3000/cliente/home');
+                }
+                else if (resp.nivelLogin == 1){
+                    window.location.replace('http://localhost:3000/funcionario/home');
+                }
+                else if (resp.nivelLogin == 3){
+                    window.location.replace('http://localhost:3000/funcionario/home');
+                }
+                return resp
         }catch(e){
-            toast.info(e.response.data.error);
-        }
-        console.log(client)
-        /*if(req.NivelLogin == 0){
-            localstorage.setItem('id',req.id);
-            window.location.replace('http://localhost:3000/cliente/home');
-        }
-        else if (req.NivelLogin == 1){
-            localstorage.setItem('id',req.id);
-            window.location.replace('http://localhost:3000/funcionario/home');
-        }
-        else if (req.NivelLogin == 3){
-            localstorage.setItem('id',req.id);
-            window.location.replace('http://localhost:3000/funcionario/home');
-        }*/
-        
+            toast.info(e.response.data);
+        }        
     }
 
         
@@ -129,12 +123,10 @@ function Login(){
                         
                        <ContainerButtonOne>
 
-                            <ButtonMedio onCLick = {Logar}
-                                children = 'Entrar' 
-                            />
-                            
+                            <But onClick = {Logar}>
+                                Entrar
+                            </But>
                        </ContainerButtonOne>
-
                     </InfoLogin>
                 </InfosWrapper>
 
