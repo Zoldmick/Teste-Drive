@@ -22,6 +22,14 @@ namespace backend.Business
            return ag;
         }
 
+        public Models.TbAgendamento ConsultarAgendamento(int id)
+        {
+            Models.TbAgendamento ag = db.ConsultarAgendamento(id);
+            if(ag == null) throw new ArgumentException("ID não encontrado");
+
+            return ag;
+        }
+
         public List<Models.TbAgendamento> ConsultarCliente(string nome)
         {
             if(string.IsNullOrEmpty(nome)) throw new ArgumentException("Nome esta vazio");

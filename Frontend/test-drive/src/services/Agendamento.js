@@ -6,6 +6,11 @@ const api = axios.create({
 
 export default class Agendamento {
 
+    async ConsultarAgendamento(id){
+        const response = await api.get(`/Agendamento/${id}`)
+        return response.data
+    }
+
     async ConsultarPorStatus(id,status){
         const response = await api.post(`/Agendamento/Filtro/Status/${id}?status=${status}`)
         return response.data

@@ -20,7 +20,10 @@ namespace backend.Utils
                 Cliente = tb.IdCliente,
                 Veiculo = tb.IdVeiculo,
                 Acompanhante = tb.DsAcompanhante,
-                Funcionario =  "José Arignaldo dos santos"
+                Funcionario =  "José Arignaldo dos santos",
+                CarroPcd = new Database.AgendamentoDatabase().ConsultarVeiculo(tb.IdVeiculo).BtCarroPcd
+                    ? "Sim"
+                    : "Não"  
             };
         }
         

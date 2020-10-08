@@ -12,6 +12,22 @@ namespace backend.Controllers
         Business.AgendamentoBusiness buss = new Business.AgendamentoBusiness();
         Utils.AgendamentoConversor conv = new Utils.AgendamentoConversor();
 
+        [HttpGet("{id}")] // Cliente
+        public ActionResult<Models.Response.AgendamentoResponse> ConsultarAgendamento(int id)
+        {
+            try
+            {
+                return conv.ParaResponse(buss.ConsultarAgendamento(id));
+            }
+            catch(Exception ex)
+            {
+                return new BadRequestObjectResult(
+                    new Models.Response.ErrorResponse(ex.Message,404)
+                );
+            }
+
+        }
+
         [HttpGet("Filtro/Status/{id}")] // Cliente e Funcionario
         public ActionResult<List<Models.Response.AgendamentoResponse>> Consultar(int id, string status)
         {

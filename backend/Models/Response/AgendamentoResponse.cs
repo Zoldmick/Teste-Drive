@@ -15,6 +15,7 @@ namespace backend.Models.Response
         public string Status { get; set; }
         public DateTime Data { get; set; }
         public string Feedback { get; set; }
+        public string CarroPcd { get; set; }
         public int? Avaliacao { get; set; }
     }
 }
