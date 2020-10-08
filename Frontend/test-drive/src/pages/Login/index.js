@@ -29,23 +29,24 @@ function Login(){
 
     async function Logar(){ 
         try{
-            const req = await apil.Consultar({Email = email,Senha = senha});
+            const req = await apil.Consultar({Email: email,Senha: senha});
         }catch(e){
             toast.info(e.response.data.error);
         }
 
-        if(req.NivelLogin == 0){
+
+        /*if(req.NivelLogin == 0){
             localstorage.setItem('id',req.id);
             window.location.replace('http://localhost:3000/cliente/home');
         }
         else if (req.NivelLogin == 1){
             localstorage.setItem('id',req.id);
-            window.location.replace('http://localhost:3000/cliente/funcionario');
+            window.location.replace('http://localhost:3000/funcionario/home');
         }
         else if (req.NivelLogin == 3){
             localstorage.setItem('id',req.id);
-            window.location.replace('http://localhost:3000/cliente/gerente');
-        }
+            window.location.replace('http://localhost:3000/funcionario/home');
+        }*/
         
     }
 
