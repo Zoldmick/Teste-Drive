@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = styled.button`
+export const Button = styled.button`
     height:35px;
     width:97px;
 
@@ -44,7 +44,7 @@ const ButtonG = styled.button`
 export function ButtonMedio ({ children, onClick, to, as }){
 
     return(
-        <Button as ={as} to = {to}  onclick = {onClick} >
+        <Button as ={as} to = {to}  onClick = {onClick} >
             {children}
         </Button>
     );

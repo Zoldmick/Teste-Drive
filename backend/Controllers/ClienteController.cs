@@ -52,9 +52,10 @@ namespace backend.Controllers
             {  
                 if(req.Imagem != null)
                 {
+                    Console.WriteLine("Começou");
                     Models.TbCliente client = conv.ParaTabela(req);
                     client.DsImagem = foto.GerarNovoNome(req.Imagem.FileName);
-
+                    Console.WriteLine("Salvar foto");
                     client = buss.Cadastrar(client, req.Email, req.Senha);
                     foto.salvarFoto(client.DsImagem,req.Imagem);
                     

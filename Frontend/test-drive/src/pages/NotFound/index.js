@@ -1,13 +1,13 @@
 import React from 'react'
 import Carro from '../../assets/img/Carro.jpg'
-import {PageDefault,InfoWrapper,Mensagem,ImgContainer,VidContainer} from './styled'
+import {PageDefault,InfoWrapper,Mensagem,ImgContainer,VidContainer, Img} from './styled'
 
 
 
 export default function NotFound(){
     return(
         <PageDefault>
-            {/* <InfoWrapper>
+            <InfoWrapper>
                 <Mensagem>
 
                 </Mensagem>
@@ -17,7 +17,7 @@ export default function NotFound(){
             </InfoWrapper>
             <VidContainer>
                 
-            </VidContainer> */}
+            </VidContainer>
         </PageDefault>
     );
 }
