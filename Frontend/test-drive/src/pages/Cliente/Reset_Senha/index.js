@@ -34,11 +34,7 @@ export default function ResetSenha(){
                         </Route>
                         <Route path="/">
                             <Email />   
-                            <Link to = '/reset/codigo' >
-                                <ButtonGrande
-                                    children = 'Enviar codigo'
-                                />
-                            </Link>
+                           
                         </Route>
                     </Switch>
                    

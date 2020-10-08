@@ -56,11 +56,13 @@ function RegisterCliente (){
                         />
                     </Custom>
                     <Custom>
+                        
                         <FormField 
                             label = 'tel'
                             type = 'text'
                             name= 'telefone'
                         />
+
                         <FormField 
                             label = 'Cel.'
                             type = 'text'
