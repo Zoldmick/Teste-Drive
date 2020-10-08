@@ -77,3 +77,38 @@ export const Notifica = styled.div`
       display:block;
     }
 `;
+
+
+export const Custom = styled.div`
+    display:flex;
+    
+    justify-content:space-evenly;
+
+`;
+
+export const Select = styled.select`
+    height:35px;
+    width:20vw;
+    background:whitesmoke;
+
+    box-sizing:border-box;
+    padding-left:auto;
+    padding-right:auto;
+    margin-left:10px;
+    
+    border-top-right-radius:16px;
+    border-bottom-left-radius:13px;
+    border-bottom:5px solid blue;
+
+    text-align:center;
+`;
+
+export const Option = styled.option`
+    padding-left:10px;
+    background:var(--Blue);
+    color:var(--White);
+
+    font-size:16px;
+    font-weight:200;
+    font-display:oblique;
+`;

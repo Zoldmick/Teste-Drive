@@ -60,7 +60,7 @@ const Input = styled.input`
   
 `;
 
-export function FormField({label, type, name, value, onChange}) {
+export function FormField({label, type, name, value, onChange,placeholder}) {
   const fieldId = `id_${name}`;
   const isType = type === 'textarea';
   const tag = isType      ? 'textarea' 
@@ -81,14 +81,14 @@ export function FormField({label, type, name, value, onChange}) {
         name={name} 
         value = {value}
         onChange = {onChange}
-        
+        placeholder= {placeholder}
       />  
 
     </Formfield>
   );  
 }
 
-export function FormFieldMask({label, type, name, value, onChange, mask}){
+export function FormFieldMask({label, type, name, value, onChange}){
   const fieldId = `id_${name}`;
 
   return(
@@ -104,7 +104,6 @@ export function FormFieldMask({label, type, name, value, onChange, mask}){
         name={name} 
         value = {value}
         onChange = {onChange}
-        mask = {mask}
       />  
 
     </Formfield>
