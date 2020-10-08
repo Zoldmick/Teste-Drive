@@ -22,7 +22,7 @@ function Routes () {
                 <Route path = '/' component = {Login} exact />
                
                                     /* Cliente */
-                <Route path = 'cliente/home'                     component = {HomeCliente} exact      /> 
+                <Route path = '/cliente/home'                     component = {HomeCliente} exact      /> 
                 <Route path = '/register'                        component = {RegisterCliente} exact  />
                 <Route path = '/cliente/agendamento'             component = {Register} exact         /> 
                 <Route path = '/cliente/detalhes-do-agendamento' component = {Details_Schedule} exact />
