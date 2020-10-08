@@ -14,12 +14,13 @@ export const ContainerImg = styled.div`
 export const InfoRegister = styled.div`
     display:flex;
     flex-direction:column;
-    height:30vh;
+    min-height:100vh;
     width:100vw;
     
     box-sizing:border-box;
     justify-items:center;
     align-items:center; 
+    margin-top:20px;
 
     @media(max-width:800px){
        height:50vh;
@@ -54,21 +55,21 @@ export const ContainerButton = styled.div`
 
     }
 `;
-
-export const ContainerForm = styled.div`
+ 
+export const Custom= styled.div`
     display:flex;
     height:10vh;
-    width:60vw;
+    width:70vw;
 
-    justify-content:space-evenly;
+    justify-content:space-between;
     margin-top:20px;
-    margin-bottom:20px;
+    margin-bottom:5px;
 
     @media(max-width:800px){
         flex-direction:column;
         height:20vh;
         margin-top:30px;
-    }
+    }  
 `;
 
 export const Span = styled.span`
@@ -93,6 +94,8 @@ export const H1 = styled.h1`
 export const Select = styled.select`
     height:35px;
     width:25vw;
+    margin-top:30px;
+    margin-bottom:15px;
 
     text-align:center;
     font-size:18px;
@@ -123,4 +126,36 @@ export const Option = styled.option`
         background: gray;
         color:red;
     }
+`;
+
+export const ClienteWrapper = styled.div`
+    display:flex;
+    flex-direction:column;
+    height:90vh;
+    width:80vw;
+
+    box-sizing:border-box;
+    padding-left:50px;
+    padding-top:10px;
+    border:1px solid black;
+`;
+
+export const FuncWrapper = styled.div`
+    display:flex;
+    flex-direction:column;
+    height:45vh;
+    width:80vw;
+
+    box-sizing:border-box;
+    padding-left:50px;
+    padding-top:10px;
+    border:1px solid black;
+`;
+
+export const H2 = styled.h2`
+    font-size:26px;
+    font-weight:200;
+
+    text-align:center;
+    letter-spacing:2px;
 `;

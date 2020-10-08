@@ -3,7 +3,7 @@ import {ButtonGrande} from '../../../components/Button'
 import {FormField} from '../../../components/FormField'
 import Footer from '../../../components/Fotter'
 import { FaCar as CarIcon} from 'react-icons/fa';
-import {PageDefault, ContainerImg, InfoRegister, InfoCar, ContainerButton, ContainerForm, Span, H1, Select,Option} from './styled'
+import {PageDefault, ContainerImg, InfoRegister, InfoCar, ContainerButton, Span, H1, Select,Option, Custom,ClienteWrapper,FuncWrapper, H2} from './styled'
 import Veiculo from '../../../services/Veiculo'
 //import { toastContainer, toast } from 'react-toastify'
 
@@ -43,152 +43,148 @@ function RegisterAgendamento (){
             </ContainerImg>
 
             <InfoRegister>
-
                 <form>
+                    <ClienteWrapper>
 
-                    <ContainerForm>
+                        <H2>Dados do Cliente</H2>
+                        <Custom>
+                            
+                            <FormField 
+                                label = 'E-mail'
+                                type = 'text' 
+                                name = 'email'
+                                />
+                            
+                            <FormField 
+                                label = 'Senha'
+                                type = 'password'
+                                name = 'senha'
+                            />
 
-                        <FormField 
-                            label = 'E-mail'
-                            type = 'text' 
-                            name = 'email'
-                        />
+                        </Custom>
+                    
                         
-                        <FormField 
-                            label = 'Senha'
-                            type = 'password'
-                            name = 'senha'
-                        />
-                   
-                    </ContainerForm>
 
-                    <ContainerForm>
-
+                    
+                        
                         <FormField 
                             label = 'Nome de Usuario'
                             type = 'text'
                             name= 'nmusuario'
                         />
-                   
-                    </ContainerForm>
-
-                    <ContainerForm>
-
-                        <FormField 
-                            label = 'CPF'
-                            type = 'text'
-                            name= 'cpf'
-                        />
-
-                        <FormField 
-                            label = 'Data de Nascimento'
-                            type = 'date'
-                            name= 'nascimento'
-                        />
-
-                    </ContainerForm>
-
-                    <ContainerForm>
+                    
                         
-                        <FormField 
-                            label = 'Endereço'
-                            type = 'text'
-                            name= 'endereco'
-                        />
 
-                        <FormField 
-                            label = 'numero'
-                            type = 'text'
-                            name= 'numero'
-                        />
+                        <Custom>
 
-                    </ContainerForm>
+                            <FormField 
+                                label = 'CPF'
+                                type = 'text'
+                                name= 'cpf'
+                            />
 
-                    <ContainerForm>
+                            <FormField 
+                                label = 'Data de Nascimento'
+                                type = 'date'
+                                name= 'nascimento'
+                            />
+
+                        </Custom>
                         
-                        <FormField 
-                            label = 'tel'
-                            type = 'text'
-                            name= 'telefone'
-                        />
 
-                        <FormField 
-                            label = 'Cel.'
-                            type = 'text'
-                            name= 'celular'
-                        />
-                        
-                    </ContainerForm>
+                        <Custom>
+                            
+                            <FormField 
+                                label = 'Endereço'
+                                type = 'text'
+                                name= 'endereco'
+                            />
 
-                    <ContainerForm>
-                        
-                        <FormField 
-                            label = 'CNH'
-                            type = 'text'
-                            name= 'cnh'
-                        />
+                            <FormField 
+                                label = 'numero'
+                                type = 'text'
+                                name= 'numero'
+                            />
 
-                        <FormField 
-                            label = 'Sou Deficiente.'
-                            type = 'checkbox'
-                            name= 'deficiente'
-                        />
-                        
-                    </ContainerForm>
+                        </Custom>
 
-                   <ContainerButton>
-                        <FormField 
-                            type = 'Reset'
-                            name = 'acompanhante'
-                            value = 'Limpar'
-                        />
+                    
+                        <Custom>
+                            <FormField 
+                                label = 'tel'
+                                type = 'text'
+                                name= 'telefone'
+                            />
 
-                        <ButtonGrande
-                            children = "Salvar"
-                        />
-                   </ContainerButton>
+                            <FormField 
+                                label = 'Cel.'
+                                type = 'text'
+                                name= 'celular'
+                            />
+                            
+                        </Custom>
 
-                </form>
-            </InfoRegister>
+                        <Custom>
 
-            <InfoRegister>
+                            <FormField 
+                                label = 'CNH'
+                                type = 'text'
+                                name= 'cnh'
+                            />
 
-                <form>
-                    <Select name = 'carselect'>
-                        <Option value='0' >Selecionar carro para teste</Option>
-                        {/* Colocar opção para selecionar o pcd*/}
-                        {req.map(x => 
-                            <Option value={x.id} >{x.Modelo}</Option>
-                        )}
-                    </Select>
+                            <FormField 
+                                label = 'Sou Deficiente.'
+                                type = 'checkbox'
+                                name= 'deficiente'
+                            />    
+                            
+                        </Custom>                
+                    
+                    </ClienteWrapper>
 
-                   <ContainerForm>
+                    <hr/>
 
-                        <FormField 
-                            label = 'Data/Hora'
-                            type = 'datetime-local' 
-                            name = 'data/hora'
-                        />
+                    <FuncWrapper>
 
-                        <FormField 
-                            label = 'Acompanhante'
-                            type = 'text'
-                            name = 'acompanhante'
-                        />
-                   
-                   </ContainerForm>
+                        <H2>Dados do Agendamento </H2>      
+                
+                        <Select name = 'carselect'>
+                            <Option value='0' >Selecionar carro para teste</Option>
+                            {/* Colocar opção para selecionar o pcd*/}
+                            {req.map(x => 
+                                <Option value={x.id} >{x.Modelo}</Option>
+                            )}
+                        </Select>
 
-                   <ContainerButton>
-                        <FormField 
-                            type = 'Reset'
-                            name = 'acompanhante'
-                            value = 'Limpar'
-                        />
+                    
+                        <Custom>
 
-                        <ButtonGrande
-                            children = "Salvar"
-                        />
-                   </ContainerButton>
+                            <FormField 
+                                label = 'Data/Hora'
+                                type = 'datetime-local' 
+                                name = 'data/hora'
+                            />
+
+                            <FormField 
+                                label = 'Acompanhante'
+                                type = 'text'
+                                name = 'acompanhante'
+                            />
+
+                        </Custom>
+
+                        <ContainerButton>
+                            <FormField 
+                                type = 'Reset'
+                                name = 'acompanhante'
+                                value = 'Limpar'
+                            />
+
+                            <ButtonGrande
+                                children = "Salvar"
+                            />
+                        </ContainerButton>
+                    </FuncWrapper>
 
                 </form>
             </InfoRegister>
