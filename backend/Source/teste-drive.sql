@@ -79,5 +79,7 @@ values ('Meriva','rbv-5331','chevrolet',34.000,false,'2020-06-21','cinza','Gasol
 insert into tb_cliente(id_login,nm_cliente,ds_cpf,ds_cnh,ds_endereco,ds_celular,ds_telefone,nr_residencia,bt_deficiente)
 values (1,'jose carlos','12345678900','12345678910','R. Alvares cabral','1195235648','11568975564',56,false);
 select * from teste_drive.tb_login;
+desc tb_notificacao;
+insert into tb_notificacao(id_login,ds_mensagem,dt_envio,ds_status) value (2,'Ola seja bem vindo','2020-10-06','não lido');
 select * from teste_drive.tb_veiculo;
 select * from tb_agendamento;

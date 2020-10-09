@@ -19,32 +19,13 @@ import TbConcluido from './concluido';
 import { FcList } from 'react-icons/fc';
 import { CgAdd } from "react-icons/cg";
 import { IoIosNotificationsOutline } from "react-icons/io";
-
-import Notificacao from '../../../services/Notificacao'
-const ApiNotificacao = new Notificacao() 
+ 
 
 function HomeCliente() {
 
     const [email,setEmail] = useState()
     const [senha,setSenha] = useState()
-    const [notifi,setNotifi] = useState([])
-
-    async function ConsultarNotificacao(){
-        try{
-            console.log(localStorage.getItem('id'))
-            const resp = await ApiNotificacao.Consultar(localStorage.getItem('id'))
-            console.log(resp)
-            setNotifi(...resp)
-
-        }catch(e){
-            // if(e.response.data.erro) toast.info(e.response.data.error)
-            // else toast.error("Algo deu errado, tente novamente")
-        }
-    } 
-
-    useEffect(() => {
-        ConsultarNotificacao()
-    },[])
+    
     
     return(
        <PageDefault>
@@ -66,12 +47,12 @@ function HomeCliente() {
                         </Button>
 
                         <NotiWrapper>
-                            {notifi.map(x => 
+                            {/* {notifi.map(x => 
                                 <div>
                                     <div>{x.envio}</div>
                                     <div>{x.mensagem}</div>
                                 </div>
-                                )}
+                                )} */}
                         </NotiWrapper>
 
                     </IconContext.Provider>   
