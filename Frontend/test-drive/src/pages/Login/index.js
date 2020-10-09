@@ -8,7 +8,7 @@ import { IconContext } from "react-icons";
 import {Link} from 'react-router-dom'
 import ApiLogin from '../../services/Login'
 import {ToastContainer,toast} from 'react-toastify'
-
+import "react-toastify/dist/ReactToastify.css"
 const apil = new ApiLogin()
 
 
@@ -48,18 +48,17 @@ function Login(){
                 }
                 return resp
         }catch(e){
-            toast.info(e.response.data);
+            if(e.response.data.error) toast.warning(e.response.data.error);
+            else toast.error("Algo deu errado. Tente novamente")
         }        
     }
-
         
     return(
 
         <PageDefault>
-
-            <H1>Flagstaff Car</H1>
+            <ToastContainer />
             <ConteudoWrapper>
-
+            <H1>Flagstaff Car</H1>
                 <InfosWrapper>
                     <Infos>
                         <p>
@@ -131,7 +130,6 @@ function Login(){
                 </InfosWrapper>
 
             </ConteudoWrapper>
-
         </PageDefault>
     );
 }

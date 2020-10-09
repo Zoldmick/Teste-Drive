@@ -12,6 +12,7 @@ export const ConteudoWrapper = styled.div`
     height:80vh;
     width:100vw;
 
+    flex-direction:column;
     box-sizing:border-box;
     align-items:center;
     justify-content:center;

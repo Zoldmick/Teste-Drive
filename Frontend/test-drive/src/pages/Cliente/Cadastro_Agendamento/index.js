@@ -6,18 +6,42 @@ import { FaCar as CarIcon} from 'react-icons/fa';
 import {PageDefault, ContainerImg, InfoRegister, InfoCar, ContainerButton, ContainerForm, Span, H1, Select,Option} from './styled'
 import Veiculo from '../../../services/Veiculo'
 import { ToastContainer, toast } from 'react-toastify'
-
-const ApiCar = new Veiculo();
+import Agendamento from '../../../services/Agendamento'
+const ApiAg = new Agendamento()
+const ApiCar = new Veiculo()
 
 function Register (){
 
     const [req, setReq] = useState([]);
     const [pcd,setPcd] = useState(false)
-    
-    const ConsultCar =  async () => {
+    const [veiculo,setVeiculo] = useState()
+    const [data,setData] = useState()
+    const [acompanhante,setAcompanhante] = useState()
+
+    async function CadastrarAgendamento(){
         try{
-            if(localStorage.getItem('id') == null) window.location.replace("http://localhost:3000/")
+            const req = {
+                Login:localStorage.getItem('id'),
+                Data:data,
+                Veiculo:veiculo,
+                Acompanhante:acompanhante
+            }
+
+            console.log(req)
+            const resp = await ApiAg.Cadastrar(req)
+            return resp
+
+        }catch(e){
+            toast.info(e.response.data)
+        }
+    }
+
+    async function ConsultCar(){
+        try{
+            if(localStorage.getItem('id') == null) window.location.replace(`http://${window.location.host}`)
             const consult = await ApiCar.Consultar(localStorage.getItem('id'));
+            console.log(localStorage.getItem('id'))
+            console.log(consult)
             setReq([...consult])
         }catch(e) {
             console.log(e.response.data)
@@ -41,11 +65,13 @@ function Register (){
             <InfoRegister>
 
                 <form>
-                    <Select name = 'carselect'>
+                    <Select name = 'carselect' onChange={(e) => setVeiculo(e.target.value)}>
                         <Option value='0' >Selecionar carro para teste</Option>
-                        {/* Colocar opção para selecionar o pcd*/}
                         {req.map(x => 
-                            <Option value={x.id} >{x.Modelo}</Option>
+                            <>
+                                {console.log(x)}
+                                <Option key={x.id} value={x.id} >{x.modelo}</Option>
+                            </>
                         )}
                     </Select>
 
@@ -55,13 +81,17 @@ function Register (){
                             label = 'Data/Hora'
                             type = 'datetime-local' 
                             name = 'data/hora'
+                            value = {data}
+                            onChange = {(e) => setData(e.target.value)}
                             />
+
                         <FormField 
                             label = 'Acompanhante'
                             type = 'text'
                             name = 'acompanhante'
-                   
-                   />
+                            value = {acompanhante}
+                            onChange = {(e) => setAcompanhante(e.target.value)}
+                        />
                    </ContainerForm>
 
                    <ContainerButton>
@@ -72,6 +102,7 @@ function Register (){
                         />
 
                         <ButtonGrande
+                            onClick = {CadastrarAgendamento}
                             children = "Salvar"
                         />
                    </ContainerButton>

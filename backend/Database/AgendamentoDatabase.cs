@@ -66,7 +66,7 @@ namespace backend.Database
         {
             ctx.TbAgendamento.Add(tb);
             ctx.SaveChanges();
-
+            Console.WriteLine(tb.IdVeiculo);
             this.ConsultarVeiculo(tb.IdVeiculo).BtDisponivel = false;
             ctx.SaveChanges();
 

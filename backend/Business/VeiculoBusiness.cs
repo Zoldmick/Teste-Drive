@@ -11,6 +11,7 @@ namespace backend.Business
         {
            bool deficiente = db.ConsultarCliente(id).BtDeficiente;
            List<Models.TbVeiculo> ret = db.Consultar(deficiente);
+           
            if(ret == null) throw new ArgumentException("Nenhum carro encontrado");
            return ret;
         }

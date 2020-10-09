@@ -74,10 +74,10 @@ insert into tb_login(ds_senha,ds_email,nr_codigo_alteracao) values ("kajabksxySL
 show tables;
 
 insert into tb_veiculo(ds_modelo,ds_placa,ds_marca,vl_valor_veiculo,bt_carro_pcd,dt_ano_modelo,ds_cor,ds_combustivel,bt_disponivel)
-values ('HB20','rbv-5931','renault',30.000,false,'2020-01-01','preto','Gasolina',true);
+values ('Meriva','rbv-5331','chevrolet',34.000,false,'2020-06-21','cinza','Gasolina',true);
 
 insert into tb_cliente(id_login,nm_cliente,ds_cpf,ds_cnh,ds_endereco,ds_celular,ds_telefone,nr_residencia,bt_deficiente)
 values (1,'jose carlos','12345678900','12345678910','R. Alvares cabral','1195235648','11568975564',56,false);
-select * from tb_cliente;
-select * from tb_veiculo;
-select * from tb_login;
+select * from teste_drive.tb_login;
+select * from teste_drive.tb_veiculo;
+select * from tb_agendamento;
