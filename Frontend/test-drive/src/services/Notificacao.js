@@ -11,6 +11,7 @@ export default class Notificacao {
     }
 
     async Consultar(id){
+        console.log('Chegou')
         const response = await api.get(`/Notificacao/${id}`)
         return response.data 
     }

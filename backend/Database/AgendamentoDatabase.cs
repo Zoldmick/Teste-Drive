@@ -69,6 +69,16 @@ namespace backend.Database
             Console.WriteLine(tb.IdVeiculo);
             this.ConsultarVeiculo(tb.IdVeiculo).BtDisponivel = false;
             ctx.SaveChanges();
+            
+            Models.TbNotificacao noti = new Models.TbNotificacao();
+            noti.IdLogin = tb.IdClienteNavigation.IdLogin;
+            noti.DtEnvio = DateTime.Now;
+            noti.DsMensagem = "Agendamento concluido com sucesso";
+            noti.DsStatus = "não lido";
+            noti.BtDisponivel = true;
+
+            ctx.TbNotificacao.Add(noti);
+            ctx.SaveChanges();
 
             return tb;
         }
